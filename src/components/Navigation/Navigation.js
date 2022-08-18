@@ -1,48 +1,95 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from "react";
+import styled from "styled-components";
+import LogoImg from '../../assets/images/logo.png'
 
-const Navigation = () => (
-    <nav>
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <Nav>
+      <Logo href="">
+        <img src={LogoImg} alt="logo" />
+      </Logo>
+      <Hamburger onClick={() => setIsOpen(!isOpen)}>
+        <span />
+        <span />
+        <span />
+      </Hamburger>
+      <Menu isOpen={isOpen}>
+        <MenuLink href="/">Home</MenuLink>
+        <MenuLink href="/chat">Chat</MenuLink>
+        <MenuLink href="/project">Project</MenuLink>
+        <MenuLink href="/contact">Contact</MenuLink>
+      </Menu>
+    </Nav>
+  );
+};
 
-    <ul>
-        <li><Link to="/">home</Link></li>
-        <li><Link to="/chat">chat</Link></li>
-        <li><Link to="/contact">contact</Link></li>
-    </ul>
-    </nav>
-)
+export default Navbar;
 
+const MenuLink = styled.a`
+  padding: 1rem 2rem;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: #67bc98;
+  transition: all 0.3s ease-in;
+  font-size: 0.9rem;
+  &:hover {
+    color: #7b7fda;
+  }
+`;
 
+const Nav = styled.div`
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background: #5603AD;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+`;
 
+const Logo = styled.a`
+  padding: 1rem 0;
+  color: #7b7fda;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1.7rem;
+  span {
+    font-weight: 300;
+    font-size: 1.3rem;
+  }
+`;
 
-// const Button = styled.button`
-// background-color: #F6AE2D;
-//   border-radius: 8px;
-//   border-style: none;
-//   box-sizing: border-box;
-//   color: black;
-//   text-transform: uppercase;
-//   cursor: pointer;
-//   flex-shrink: 0;
-//   font-family: "Inter UI","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
-//   font-size: 16px;
-//   font-weight: 700;
-//   height: 4rem;
-//   padding: 0 1.6rem;
-//   text-align: center;
-//   text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
-//   transition: all .5s;
-//   user-select: none;
-//   -webkit-user-select: none;
-//   touch-action: manipulation;
-//   &:hover {
-//     box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
-//   transition-duration: .1s;
-//   }
-//   @media (min-width: 768px) {
-//   .button-36 {
-//     padding: 0 2.6rem;
-//   }
-// }'
+const Menu = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  @media (max-width: 768px) {
+    overflow: hidden;
+    flex-direction: column;
+    max-height: ${({ isOpen }) => (isOpen ? "300px" : "0")};
+    transition: max-height 0.3s ease-in;
+    width: 100%;
+  }
+`;
 
-export default Navigation;
+const Hamburger = styled.div`
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  span {
+    height: 2px;
+    width: 25px;
+    background: #7b7fda;
+    margin-bottom: 4px;
+    border-radius: 5px;
+  }
+  @media (max-width: 768px) {
+    display: flex;
+  }
+`;
