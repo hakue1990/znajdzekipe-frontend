@@ -20,6 +20,7 @@ background-color: #F6AE2D;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  margin: 15px;
   &:hover {
     box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
   transition-duration: .1s;

@@ -5,6 +5,7 @@ import ChatView from '../ChatView/ChatView';
 import ContactView from '../ContactView/ContactView';
 import Button from '../../components/Button/Button';
 import Navigation from '../../components/Navigation/Navigation';
+import ProjectView from '../ProjectView/ProjectView';
 
 
 const  App =() =>  {
@@ -15,6 +16,7 @@ const  App =() =>  {
   <Routes>
     <Route path="/" element={<HomeView />}/>
     <Route path="/chat" element={<ChatView />}/>
+    <Route path="/project" element={<ProjectView />}/>
     <Route path="/contact" element={<ContactView />}/>
   </Routes>
     </>
