@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import LogoImg from '../../assets/images/logo.png'
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import Button from '../Button/Button'
 
@@ -9,16 +9,16 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <Nav>
-      <Logo href="">
+      <MenuLink to="/">
         <img src={LogoImg} alt="logo" />
-      </Logo>
+      </MenuLink>
       <Hamburger onClick={() => setIsOpen(!isOpen)}>
         <span />
         <span />
         <span />
       </Hamburger>
       <Menu isOpen={isOpen}>
-        <MenuLink to="/">Home</MenuLink>
+        <MenuLink to="/" >Home</MenuLink>
         <MenuLink to="/chat">Chat</MenuLink>
         <MenuLink to="/project">Project</MenuLink>
         <MenuLink to="/contact">Contact</MenuLink>
@@ -31,7 +31,7 @@ const Navbar = () => {
 
 export default Navbar;
 
-const MenuLink = styled(Link)`
+const MenuLink = styled(NavLink)`
   padding: 1rem 2rem;
   cursor: pointer;
   text-align: center;
@@ -41,6 +41,10 @@ const MenuLink = styled(Link)`
   font-size: 20px;
   &:hover {
     color: #F6AE2D;
+  }
+  &.active {
+    color: #F6AE2D;
+    font-weight: bold;
   }
   
   `
@@ -59,17 +63,6 @@ const Nav = styled.div`
   right: 0;
 `;
 
-const Logo = styled.a`
-  padding: 1rem 0;
-  color: #7b7fda;
-  text-decoration: none;
-  font-weight: 800;
-  font-size: 1.7rem;
-  span {
-    font-weight: 300;
-    font-size: 1.3rem;
-  }
-`;
 
 const Menu = styled.div`
   display: flex;
