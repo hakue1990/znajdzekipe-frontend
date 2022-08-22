@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const Button = styled.button`
+margin: ${({ margin }) => margin};
   background-color: #f6ae2d;
   border-radius: 18px;
   border-style: none;
@@ -20,7 +21,6 @@ const Button = styled.button`
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  margin: 15px;
   &:hover {
     box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
     transition-duration: 0.1s;

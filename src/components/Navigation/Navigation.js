@@ -22,8 +22,8 @@ const Navbar = () => {
         <MenuLink to='/chat'>Chat</MenuLink>
         <MenuLink to='/project'>Project</MenuLink>
         <MenuLink to='/contact'>Contact</MenuLink>
-        <Button>Zaloguj się</Button>
-        <Button>Zarejestruj się</Button>
+        <Button margin="0 15px">Zaloguj się</Button>
+        <Button margin="0 15px">Zarejestruj się</Button>
       </Menu>
     </Nav>
   );

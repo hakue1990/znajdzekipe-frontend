@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import HeroImg from '../../../assets/images/HeroImg.png';
 import Title from '../../../components/Title/Title';
+import Button from '../../../components/Button/Button'
 
 const HeroSection = () => (
   <>
@@ -14,6 +15,7 @@ const HeroSection = () => (
           Innowacyjna platforma, która pozwoli ci na robienie rzeczy{' '}
           <span style={{ color: '#F6AE2D' }}>wspólnie</span>!
         </Title>
+        <Button margin="40px 120px">znajdz ekipę!</Button>
       </Row>
       <Row>
         <img src={HeroImg} alt='Hero Image' />
