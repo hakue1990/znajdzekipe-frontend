@@ -9,11 +9,11 @@ const ThreeHeadSection = () => (
         <img src={ThreeHeadImg} alt='3 heads Image' />
       </Row>
       <Row black column>
-        <Title size='48px'>
+        <Title size='48px' margin='22px'>
           co <span style={{ color: '#F6AE2D' }}>trzy głowy</span> to nie{' '}
           <span style={{ color: '#F6AE2D' }}>jedna</span>
         </Title>
-        <p>
+        <p style={{ width: '70%' }}>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto
           fugiat tempore, dolor possimus iste sunt quas sequi inventore eligendi
           perspiciatis asperiores. Esse voluptate neque voluptatem eos!
@@ -29,7 +29,7 @@ export default ThreeHeadSection;
 
 const Container = styled.div`
   min-height: 100vh;
-  background-color: pink;
+  background-color: black;
   color: white;
   display: flex;
   @media (max-width: 768px) {
@@ -45,7 +45,7 @@ const Container = styled.div`
 `;
 
 const Row = styled.div`
-  width: 50%;
+  width: ${({ width }) => width || '50%'};
   display: flex;
   justify-content: center;
   align-items: center;
