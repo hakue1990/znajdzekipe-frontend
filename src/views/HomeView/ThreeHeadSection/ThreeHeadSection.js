@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import ThreeHeadImg from '../../../assets/images/3headsImg.png';
 import Title from '../../../components/Title/Title';
+import OkIco from '../../../components/OkIco/OkIco';
 
 const ThreeHeadSection = () => (
   <>
@@ -20,6 +21,9 @@ const ThreeHeadSection = () => (
           Quibusdam et in possimus sunt repudiandae at modi, explicabo magni
           voluptate corrupti placeat accusantium.
         </p>
+        <OkIco text='poznaj przyjaciół' />
+        <OkIco text='razem możesz więcej' />
+        <OkIco text='z ekipą nie ma nudy!' />
       </Row>
     </Container>
   </>

@@ -10,7 +10,7 @@ const HeroSection = () => (
         <Title color='#F6AE2D' size='52px' margin='0 120px'>
           Szukasz Ekipy ?
         </Title>
-        <Title size='44px' margin='0 120px'>
+        <Title size='40px' margin='0 120px'>
           Innowacyjna platforma, która pozwoli ci na robienie rzeczy{' '}
           <span style={{ color: '#F6AE2D' }}>wspólnie</span>!
         </Title>
