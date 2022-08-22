@@ -11,7 +11,8 @@ const HeroSection = () => (
           Szukasz Ekipy ?
         </Title>
         <Title size='44px' margin='0 120px'>
-          Innowacyjna platforma, która pozwoli ci na robienie rzeczy wspólnie!
+          Innowacyjna platforma, która pozwoli ci na robienie rzeczy{' '}
+          <span style={{ color: '#F6AE2D' }}>wspólnie</span>!
         </Title>
       </Row>
       <Row>
@@ -28,6 +29,9 @@ const Container = styled.div`
   background-color: black;
   color: white;
   display: flex;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 
   ${(props) =>
     props.primary &&
@@ -36,11 +40,23 @@ const Container = styled.div`
       color: black;
     `}
 `;
+
 const Row = styled.div`
   width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding-top: 52px;
+    overflow: hidden;
+
+    img {
+      width: 350px;
+    }
+  }
+
   ${(props) =>
     props.column &&
     css`
