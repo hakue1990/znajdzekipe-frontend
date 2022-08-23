@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import ThreeHeadImg from '../../../assets/images/3headsImg.png';
+import ThreeHeadImg from '../../../assets/images/3headsImg.webp';
 import Title from '../../../components/Title/Title';
 import OkIco from '../../../components/OkIco/OkIco';
 
