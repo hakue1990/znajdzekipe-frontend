@@ -2,15 +2,22 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import ScooterImg from '../../../assets/images/ScooterImg.webp';
 import Title from '../../../components/Title/Title';
-import Button from '../../../components/Button/Button'
+
+import FootbalIco from '../../../assets/images/FootbalIco.png'
+import beerIco from '../../../assets/images/beerIco.png'
+import chessIco from '../../../assets/images/chessIco.png'
+import gamesIco from '../../../assets/images/gamesIco.png'
+
+import Tab from './Tab/Tab';
 
 const ScooterSection = () => (
   <>
     <Container>
-      <Row column>
-        <Title color='#F6AE2D' size='52px' margin='0 120px'>
-          Components here
-        </Title>
+      <Row >
+       <Tab img={FootbalIco} title="Gra w piłkę"/>
+       <Tab img={gamesIco} title="Gry na pc?"/>
+       <Tab img={chessIco} title="A może szachy?"/>
+       <Tab img={beerIco} title="Browary w parku?"/>
         
       </Row>
       <Row>
@@ -42,8 +49,9 @@ const Container = styled.div`
 const Row = styled.div`
   width: 50%;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
+  flex-wrap: wrap;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -61,4 +69,5 @@ const Row = styled.div`
       flex-direction: column;
       align-items: flex-start;
     `}
+${({margin}) => margin || "20px"}
 `;
