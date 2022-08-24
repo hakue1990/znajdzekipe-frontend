@@ -31,7 +31,7 @@ const Container = styled.div`
   transition: all .3s ease;
         &:hover{
         transform: translateX(40px);
-        cursor: pointer;
+        cursor: pointer;}
   @media (max-width: 768px) {
     /* font-size: 32px; */
   }
