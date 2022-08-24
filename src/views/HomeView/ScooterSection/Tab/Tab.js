@@ -26,6 +26,11 @@ const Tab = ({title, img}) => (
             width: 60px;
             margin-bottom: 20px;
         }
+        transition: all .3s ease;
+        &:hover{
+        transform: translateX(-20px);
+        cursor: pointer;
+        }
         `
 
 

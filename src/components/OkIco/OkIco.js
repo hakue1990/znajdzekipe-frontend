@@ -28,6 +28,10 @@ const Container = styled.div`
   width: 500px;
   height: 74px;
   position: relative;
+  transition: all .3s ease;
+        &:hover{
+        transform: translateX(40px);
+        cursor: pointer;
   @media (max-width: 768px) {
     /* font-size: 32px; */
   }

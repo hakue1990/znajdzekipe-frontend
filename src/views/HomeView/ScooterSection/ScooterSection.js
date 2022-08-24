@@ -13,13 +13,13 @@ import Tab from './Tab/Tab';
 const ScooterSection = () => (
   <>
     <Container>
-      <Row >
+      <LeftRow >
        <Tab img={FootbalIco} title="Gra w piłkę"/>
        <Tab img={gamesIco} title="Gry na pc?"/>
        <Tab img={chessIco} title="A może szachy?"/>
        <Tab img={beerIco} title="Browary w parku?"/>
         
-      </Row>
+      </LeftRow>
       <Row>
         <img src={ScooterImg} alt='Scooter' />
       </Row>
@@ -71,3 +71,9 @@ const Row = styled.div`
     `}
 ${({margin}) => margin || "20px"}
 `;
+
+const LeftRow = styled(Row)`
+width: 60%;
+padding: 60px;
+
+`
