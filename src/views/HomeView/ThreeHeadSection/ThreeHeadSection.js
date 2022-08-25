@@ -7,7 +7,7 @@ const ThreeHeadSection = () => (
   <>
     <Container>
       <Row black>
-        <img src={ThreeHeadImg} alt='3 heads Image' />
+        <img src={ThreeHeadImg} alt='3 heads' />
       </Row>
       <Row black column>
         <Title size='48px' margin='22px'>

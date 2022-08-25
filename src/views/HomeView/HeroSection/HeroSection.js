@@ -18,7 +18,7 @@ const HeroSection = () => (
         <Button margin="40px 120px">znajdz ekipę!</Button>
       </Row>
       <Row>
-        <img src={HeroImg} alt='Hero Image' />
+        <img src={HeroImg} alt='Hero' />
       </Row>
     </Container>
   </>

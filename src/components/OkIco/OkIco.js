@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import OkImg from '../../assets/images/ico.png';
 
 const SignIco = ({ text }) => {

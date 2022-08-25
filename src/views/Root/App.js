@@ -3,7 +3,6 @@ import { Route, Routes } from 'react-router-dom';
 import HomeView from '../HomeView/HomeView';
 import ChatView from '../ChatView/ChatView';
 import ContactView from '../ContactView/ContactView';
-import Button from '../../components/Button/Button';
 import Navigation from '../../components/Navigation/Navigation';
 import ProjectView from '../ProjectView/ProjectView';
 
