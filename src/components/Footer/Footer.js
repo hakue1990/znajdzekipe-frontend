@@ -1,5 +1,10 @@
 import styled from "styled-components";
 import Button from "../Button/Button";
+import Logo from '../../assets/images/logo.png'
+
+import FacebookIco from '../../assets/images/socials/Facebook Icon.png'
+import LinkedinIco from '../../assets/images/socials/Linkedin Icon.png'
+import GithubIco from '../../assets/images/socials/Github Icon.png'
 
 const Footer = () => (
   <Container>
@@ -16,7 +21,15 @@ const Footer = () => (
         <FooterBtn >Kontakt</FooterBtn>
       </div>
     </UpperRow>
-    <Row></Row>
+    <Row>
+      <img src={Logo} alt="logo" />
+      <span>© 2022 Znajdź ekipę . All Rights Reserved. </span>
+      <div>
+        <a href="#"><img src={FacebookIco} alt="facebook" /></a>
+         <a href="#"><img src={LinkedinIco} alt="linkedin" /></a>
+        <a href="#"><img src={GithubIco} alt="github" /></a> 
+      </div>
+    </Row>
   </Container>
 );
 
@@ -29,6 +42,26 @@ const Container = styled.div`
 const Row = styled.div`
   height: 30%;
   display: flex;
+justify-content: space-evenly;
+align-items: center;
+  img {
+    width: 100px;
+    height: 60px;
+  }
+  span {
+    font-size: 16px;
+    color: white;
+  }
+  a {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    margin: 5px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
 `;
 
 const UpperRow = styled(Row)`
