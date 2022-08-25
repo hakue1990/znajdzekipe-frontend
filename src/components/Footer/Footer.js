@@ -11,8 +11,10 @@ const Footer = () => (
         praesentium dolor ex quae dolorem, id quisquam cum quibusdam alias
         reiciendis aperiam?
       </Paragraph>
-      <Button>Szukaj</Button>
-      <Button>Kontakt</Button>
+      <div>
+        <FooterBtn>Szukaj ekipy</FooterBtn>
+        <FooterBtn >Kontakt</FooterBtn>
+      </div>
     </UpperRow>
     <Row></Row>
   </Container>
@@ -26,30 +28,41 @@ const Container = styled.div`
 `;
 const Row = styled.div`
   height: 30%;
-display: flex;
+  display: flex;
 `;
 
 const UpperRow = styled(Row)`
-height: 70%;
-justify-content: center;
-align-items: center;
-flex-direction: column;
-text-align: center;
-padding: 0 500px;
+  height: 70%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+  padding: 0 500px;
+  &::before {
+    content: "";
+    width: 80%;
+    height: 1px;
+    background-color: #fff;
+    position: absolute;
+    bottom: 0;
+  }
 `;
 
 const Paragraph = styled.p`
   font-size: 22px;
   margin: 20px;
   color: white;
-
-`
-
-
-
-
+`;
 
 const Title = styled.h2`
-font-size: 40px;
-color: white;
-`
+  font-size: 40px;
+  color: white;
+`;
+
+const FooterBtn = styled(Button)`
+margin: 15px;
+width: 138px;
+
+`;
+

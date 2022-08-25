@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
     
 }
   body {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'Lato', sans-serif;
     
   }
 `;
