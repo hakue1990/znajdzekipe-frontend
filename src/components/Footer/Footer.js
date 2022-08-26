@@ -2,9 +2,8 @@ import styled from "styled-components";
 import Button from "../Button/Button";
 import Logo from '../../assets/images/logo.png'
 
-import FacebookIco from '../../assets/images/socials/Facebook Icon.png'
-import LinkedinIco from '../../assets/images/socials/Linkedin Icon.png'
-import GithubIco from '../../assets/images/socials/Github Icon.png'
+import { BsFacebook, BsGithub, BsLinkedin } from 'react-icons/bs';
+
 
 const Footer = () => (
   <Container>
@@ -24,11 +23,11 @@ const Footer = () => (
     <Row>
       <img src={Logo} alt="logo" />
       <span>© 2022 Znajdź ekipę . All Rights Reserved. </span>
-      <div>
-        <a href="#"><img src={FacebookIco} alt="facebook" /></a>
-         <a href="#"><img src={LinkedinIco} alt="linkedin" /></a>
-        <a href="#"><img src={GithubIco} alt="github" /></a> 
-      </div>
+      <SocialsContainer>
+        <a href="https://127.0.0.1"><BsFacebook size="30px"/></a>
+         <a href="https://127.0.0.1"><BsGithub size="30px"/></a>
+        <a href="https://127.0.0.1"><BsLinkedin size="30px"/></a> 
+      </SocialsContainer>
     </Row>
   </Container>
 );
@@ -39,6 +38,11 @@ const Container = styled.div`
   height: 594px;
   background-color: #5603ad;
 `;
+
+const SocialsContainer = styled.div`
+display: flex;
+`;
+
 const Row = styled.div`
   height: 30%;
   display: flex;
@@ -51,16 +55,26 @@ align-items: center;
   span {
     font-size: 16px;
     color: white;
+    letter-spacing: 3px;
   }
   a {
     width: 40px;
     height: 40px;
     display: inline-block;
-    margin: 5px;
-    img {
-      width: 100%;
-      height: 100%;
-    }
+    margin: 5px;  
+    border-radius: 50%;
+    position: relative;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    
+&:hover {
+  background-color: black ;
+
+}
+
   }
 `;
 
