@@ -19,9 +19,9 @@ const Navbar = () => {
       </Hamburger>
       <Menu isOpen={isOpen}>
         <MenuLink to='/'>Home</MenuLink>
-        <MenuLink to='/chat'>Chat</MenuLink>
-        <MenuLink to='/project'>Project</MenuLink>
-        <MenuLink to='/contact'>Contact</MenuLink>
+        {/* <MenuLink to='/chat'>Chat</MenuLink> */}
+        {/* <MenuLink to='/project'>Project</MenuLink> */}
+        <MenuLink to='/contact'>Kontakt</MenuLink>
         <Button margin="0 15px">Zaloguj się</Button>
         <Button margin="0 15px">Zarejestruj się</Button>
       </Menu>
