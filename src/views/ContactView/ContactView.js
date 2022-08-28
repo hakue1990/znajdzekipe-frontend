@@ -2,6 +2,7 @@ import React from "react";
 
 import styled, { css } from "styled-components";
 import ContactImg from "../../assets/images/ContactImg.webp";
+import Button from '../../components/Button/Button'
 
 const ContactSection = () => (
   <>
@@ -39,6 +40,7 @@ const ContactSection = () => (
             </Label>
             <Line />
           </TextWrapper>
+          <Button>wyślij</Button>
         </Form>
       </Row>
       <Row>
@@ -93,7 +95,7 @@ const Row = styled.div`
 
 const Form = styled.form`
   width: 500px;
-  height: 500px;
+  height: 540px;
   background-color: #fff;
   margin-top: 30px;
   display: flex;
@@ -177,4 +179,5 @@ const Input = styled.input`
 
 const TextWrapper = styled(InputContainer)`
 height: 170px;
+margin-bottom: 30px;
 `;
