@@ -1,16 +1,36 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import LogoImg from '../../assets/images/logo.png';
-import { NavLink } from 'react-router-dom';
-
-import Button from '../Button/Button';
+import React, { useState } from "react";
+import styled from "styled-components";
+import LogoImg from "../../assets/images/logo.png";
+import { NavLink } from "react-router-dom";
+import Button from "../Button/Button";
+import { signInWithPopup, signOut } from "firebase/auth";
+import { auth, provider } from "../../firebase";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const signIn = () => {
+    signInWithPopup(auth, provider)
+      .then(() => {})
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const logOut = () => {
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful.
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <Nav>
-      <MenuLink to='/'>
-        <img src={LogoImg} alt='logo' />
+      <MenuLink to="/">
+        <img src={LogoImg} alt="logo" />
       </MenuLink>
       <Hamburger onClick={() => setIsOpen(!isOpen)}>
         <span />
@@ -18,12 +38,16 @@ const Navbar = () => {
         <span />
       </Hamburger>
       <Menu isOpen={isOpen}>
-        <MenuLink to='/'>Home</MenuLink>
-        {/* <MenuLink to='/chat'>Chat</MenuLink> */}
+        <MenuLink to="/">Home</MenuLink>
+        <MenuLink to="/chat">Chat</MenuLink>
         {/* <MenuLink to='/project'>Project</MenuLink> */}
-        <MenuLink to='/contact'>Kontakt</MenuLink>
-        <Button margin="0 15px">Zaloguj się</Button>
-        <Button margin="0 15px">Zarejestruj się</Button>
+        <MenuLink to="/contact">Kontakt</MenuLink>
+        <Button margin="0 15px" onClick={signIn}>
+          Zaloguj się
+        </Button>
+        <Button margin="0 15px" onClick={logOut}>
+          Wyloguj się
+        </Button>
       </Menu>
     </Nav>
   );
@@ -66,7 +90,7 @@ const Menu = styled.div`
   @media (max-width: 768px) {
     overflow: hidden;
     flex-direction: column;
-    max-height: ${({ isOpen }) => (isOpen ? '100vh' : '0')};
+    max-height: ${({ isOpen }) => (isOpen ? "100vh" : "0")};
     transition: max-height 0.3s ease-in;
     width: 100%;
   }
