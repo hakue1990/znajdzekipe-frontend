@@ -4,7 +4,7 @@ import HomeView from "../HomeView/HomeView";
 import ChatView from "../ChatView/ChatView";
 import ContactView from "../ContactView/ContactView";
 import Navigation from "../../components/Navigation/Navigation";
-import ProjectView from "../ProjectView/ProjectView";
+import ProjectView from "../SearchView/ProjectView";
 
 const App = () => {
   return (
