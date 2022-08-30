@@ -1,24 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { collection, addDoc } from "firebase/firestore";
-import { db, auth } from "../../firebase";
-import Button from "../../components/Button/Button";
+import { auth } from "../../firebase";
 import ListOfGroups from "./ListOfGroups";
 import Chat from "./Chat";
-import Title from "../../components/Title/Title";
-
-const addGroup = async () => {
-  try {
-    const docRef = await addDoc(collection(db, "groups"), {
-      name: "Testowa",
-      kategoria: "Lorem",
-    });
-    console.log("Document written with ID: ", docRef.id);
-  } catch (e) {
-    console.error("Error adding document: ", e);
-  }
-};
 
 const HomeView = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -26,21 +11,22 @@ const HomeView = () => {
   if (loading)
     return (
       <Container>
-        <Title>Checking user</Title>
+        <h1>Checking user</h1>
       </Container>
     );
 
   if (user) {
     return (
       <Container>
-        <GroupsPanel>
-          <h1>this is Chat view</h1>
-          <Button onClick={() => addGroup()}>Dodaj grupe</Button>
-          <ListOfGroups />
-        </GroupsPanel>
-        <ChatPanel>
-          <Chat />
-        </ChatPanel>
+        <h1>Tutaj możesz pisać z grupami, do których należysz</h1>
+        <Wrapper>
+          <GroupsPanel>
+            <ListOfGroups />
+          </GroupsPanel>
+          <ChatPanel>
+            <Chat />
+          </ChatPanel>
+        </Wrapper>
       </Container>
     );
   } else
@@ -56,8 +42,15 @@ export default HomeView;
 const Container = styled.div`
   min-height: 92vh;
   display: flex;
+  flex-direction: column;
 `;
 
 const GroupsPanel = styled.div``;
 
 const ChatPanel = styled.div``;
+
+const Wrapper = styled.div`
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+`;

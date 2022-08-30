@@ -17,7 +17,11 @@ const ListOfGroups = () => {
 
   return (
     <Container>
-      <div>ListOfGroups</div>
+      <div>
+        <h2>
+          Grupy do których należysz. <br /> Kliknij aby rozpocząć konwersację
+        </h2>
+      </div>
       {groups.map((group) => (
         <Group key={group.id} id={group.id} name={group.data().name} />
       ))}

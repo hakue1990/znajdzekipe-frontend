@@ -40,7 +40,7 @@ const Navbar = () => {
       <Menu isOpen={isOpen}>
         <MenuLink to="/">Home</MenuLink>
         <MenuLink to="/chat">Czat</MenuLink>
-        {/* <MenuLink to='/project'>Project</MenuLink> */}
+        <MenuLink to="/search">Szukaj</MenuLink>
         <MenuLink to="/contact">Kontakt</MenuLink>
         <Button margin="0 15px" onClick={signIn}>
           Zaloguj się
