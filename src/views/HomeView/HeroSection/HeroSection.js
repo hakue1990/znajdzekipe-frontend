@@ -17,9 +17,9 @@ const HeroSection = () => (
         </Title>
         <Button margin="40px 120px">znajdz ekipę!</Button>
       </Row>
-      <Row>
+      <ImageRow>
         <img src={HeroImg} alt='Hero' />
-      </Row>
+      </ImageRow>
     </Container>
   </>
 );
@@ -47,15 +47,19 @@ const Row = styled.div`
   width: 50%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 
   @media (max-width: 768px) {
     width: 100%;
     padding-top: 52px;
     overflow: hidden;
+    align-items: center;
+
+
 
     img {
       width: 350px;
+      height: 350px;
     }
   }
 
@@ -63,6 +67,20 @@ const Row = styled.div`
     props.column &&
     css`
       flex-direction: column;
-      align-items: flex-start;
+      @media (max-width: 768px) {
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-left: 80px;
+button{
+left: 10px;
+margin: 30px 0;
+position: relative;
+right: 130px;
+}
+  }
     `}
 `;
+const ImageRow = styled(Row)`
+  justify-content: center;
+  align-items: center;
+`

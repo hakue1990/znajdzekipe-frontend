@@ -37,7 +37,7 @@ const Container = styled.div`
   color: white;
   display: flex;
   @media (max-width: 768px) {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 
   ${(props) =>
