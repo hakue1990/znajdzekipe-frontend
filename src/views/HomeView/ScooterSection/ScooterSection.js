@@ -7,12 +7,14 @@ import beerIco from '../../../assets/images/beerIco.png'
 import chessIco from '../../../assets/images/chessIco.png'
 import gamesIco from '../../../assets/images/gamesIco.png'
 
+import Title from '../../../components/Title/Title';
 import Tab from './Tab/Tab';
 
 const ScooterSection = () => (
   <>
     <Container>
       <LeftRow >
+        <MobileTitle>Szukasz nowej <span style={{color: "rgb(246, 174, 45)"}}>zajawki</span>?!</MobileTitle>
        <Tab img={FootbalIco} title="Gra w piłkę"/>
        <Tab img={gamesIco} title="Gry na pc?"/>
        <Tab img={chessIco} title="A może szachy?"/>
@@ -76,6 +78,17 @@ const LeftRow = styled(Row)`
 width: 60%;
 padding: 60px;
 @media (max-width: 768px) {
-width: 90%;
+width: 80%;
+padding: 0;
 }
+`
+const MobileTitle = styled(Title)`
+display: none;
+@media (max-width: 768px) {
+  display: block;
+
+  font-size: 30px;
+  margin: 20px 0;
+}
+
 `

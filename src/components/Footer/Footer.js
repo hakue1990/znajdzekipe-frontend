@@ -37,10 +37,16 @@ export default Footer;
 const Container = styled.div`
   height: 594px;
   background-color: #5603ad;
+@media (max-width: 768px) {
+  min-height: 594px;
+}
 `;
 
 const SocialsContainer = styled.div`
 display: flex;
+@media (max-width: 768px) {
+margin-bottom: 30px;
+}
 `;
 
 const Row = styled.div`
@@ -48,6 +54,13 @@ const Row = styled.div`
   display: flex;
 justify-content: space-evenly;
 align-items: center;
+@media (max-width: 768px) {
+  text-align: center;
+  flex-direction: column;
+  span {
+     margin: 20px;
+  }
+}
   img {
     width: 100px;
     height: 60px;
@@ -84,8 +97,6 @@ const UpperRow = styled(Row)`
   align-items: center;
   flex-direction: column;
   text-align: center;
-  position: relative;
-  padding: 0 500px;
   &::before {
     content: "";
     width: 80%;
@@ -94,12 +105,20 @@ const UpperRow = styled(Row)`
     position: absolute;
     bottom: 0;
   }
+@media (max-width: 768px) {
+width: 100%;
+
+}
 `;
 
 const Paragraph = styled.p`
   font-size: 22px;
   margin: 20px;
   color: white;
+@media (max-width: 768px) {
+margin: 20px 20px;
+font-size: 16px;
+}
 `;
 
 const Title = styled.h2`

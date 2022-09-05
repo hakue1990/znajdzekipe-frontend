@@ -33,12 +33,12 @@ const Container = styled.div`
         transform: translateX(40px);
         cursor: pointer;}
   @media (max-width: 768px) {
-    width: 80vw;
+    width: 90%;
   justify-content: flex-end;
 padding: 20px;
     img {
-      height: 100%;
-      width: 60px;
+      height: 100% !important;
+      width: 60px !important;
     }
   }
 `;

@@ -90,7 +90,7 @@ const RowText = styled(Row)`
 `;
 
 
-const MobileTitle = styled(Title)`
+export const MobileTitle = styled(Title)`
   @media (max-width: 768px) {
  text-align: center;
  font-size: 31px;

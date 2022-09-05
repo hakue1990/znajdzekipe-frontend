@@ -4,7 +4,7 @@ import styled from "styled-components"
 
 const Tab = ({title, img}) => (
 <Container>
-<img src={img} alt="tab ico" />
+<TabImage src={img} alt="tab ico" />
 <h2>{title}</h2>
 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam asperiores labore quis et, quaerat quam!</p>
 </Container>
@@ -32,7 +32,7 @@ const Tab = ({title, img}) => (
         cursor: pointer;
         }
         @media (max-width: 768px) { 
-            width: 100%;
+            width: 100vw !important;
         margin: 10px;
         display: flex;
         justify-content: center;
@@ -44,7 +44,14 @@ const Tab = ({title, img}) => (
             }
         }
         `
+const TabImage = styled.img`
 
+        @media (max-width: 768px) { 
+            display: block;
+            height: 45px !important;
+            width: 45px !important;
+        }
+`;
 
 
 
