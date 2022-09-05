@@ -35,6 +35,7 @@ const Container = styled.div`
   display: flex;
   @media (max-width: 768px) {
     flex-direction: column;
+    align-items: center;
   }
 
   ${(props) =>
@@ -56,7 +57,7 @@ const Row = styled.div`
     width: 100%;
     padding-top: 52px;
     overflow: hidden;
-
+margin-bottom: 30px;
     img {
       width: 350px;
     }
@@ -74,5 +75,7 @@ ${({margin}) => margin || "20px"}
 const LeftRow = styled(Row)`
 width: 60%;
 padding: 60px;
-
+@media (max-width: 768px) {
+width: 90%;
+}
 `

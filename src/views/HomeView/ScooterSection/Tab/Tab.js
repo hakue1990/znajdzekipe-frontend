@@ -31,6 +31,18 @@ const Tab = ({title, img}) => (
         transform: translateX(-20px);
         cursor: pointer;
         }
+        @media (max-width: 768px) { 
+            width: 100%;
+        margin: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+            img {
+                width: 50px;
+                height: 50px;
+            }
+        }
         `
 
 

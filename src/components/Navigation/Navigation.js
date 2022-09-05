@@ -42,10 +42,10 @@ const Navbar = () => {
         <MenuLink to="/chat">Czat</MenuLink>
         <MenuLink to="/search">Szukaj</MenuLink>
         <MenuLink to="/contact">Kontakt</MenuLink>
-        <Button margin="0 15px" onClick={signIn}>
+        <Button margin="20px 15px" onClick={signIn}>
           Zaloguj się
         </Button>
-        <Button margin="0 15px" onClick={logOut}>
+        <Button margin="20px 15px" onClick={logOut}>
           Wyloguj się
         </Button>
       </Menu>

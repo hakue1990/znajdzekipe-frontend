@@ -33,6 +33,12 @@ const Container = styled.div`
         transform: translateX(40px);
         cursor: pointer;}
   @media (max-width: 768px) {
-    /* font-size: 32px; */
+    width: 80vw;
+  justify-content: flex-end;
+padding: 20px;
+    img {
+      height: 100%;
+      width: 60px;
+    }
   }
 `;
