@@ -12,7 +12,7 @@ const ThreeHeadSection = () => (
       <RowText black column>
         <MobileTitle size="48px" margin="22px">
           co <span style={{ color: "#F6AE2D" }}>trzy głowy</span> to nie{" "}
-          <span style={{ color: "#F6AE2D" }}>jedna</span>
+          <span style={{ color: "#F6AE2D" }}>jedna</span>!
         </MobileTitle>
         <p style={{ width: "70%" }}>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto
@@ -93,8 +93,9 @@ const RowText = styled(Row)`
 export const MobileTitle = styled(Title)`
   @media (max-width: 768px) {
  text-align: center;
- font-size: 31px;
+ font-size: 1.5rem;
  margin-bottom: 15px;
+ padding: 0 20px;
 
   }
 `;

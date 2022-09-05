@@ -87,8 +87,8 @@ display: none;
 @media (max-width: 768px) {
   display: block;
 
-  font-size: 30px;
-  margin: 20px 0;
+  font-size: 1.5rem;
+  margin: 30px 0px;
 }
 
 `
