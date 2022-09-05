@@ -1,10 +1,10 @@
-import styled from 'styled-components';
-import OkImg from '../../assets/images/ico.png';
+import styled from "styled-components";
+import OkImg from "../../assets/images/ico.png";
 
 const SignIco = ({ text }) => {
   return (
     <Container>
-      <img src={OkImg} alt='ok ico' />
+      <img src={OkImg} alt="ok ico" />
       <h2>{text}</h2>
     </Container>
   );
@@ -28,14 +28,21 @@ const Container = styled.div`
   width: 500px;
   height: 74px;
   position: relative;
-  transition: all .3s ease;
-        &:hover{
-        transform: translateX(40px);
-        cursor: pointer;}
+  transition: all 0.3s ease;
+  &:hover {
+    transform: translateX(40px);
+    cursor: pointer;
+  }
   @media (max-width: 768px) {
     width: 90%;
-  justify-content: flex-end;
-padding: 20px;
+    justify-content: flex-end;
+    padding: 20px;
+    &:hover {
+      background-color: #101935;
+      transform: translateX(0);
+      color: white;
+      cursor: pointer;
+    }
     img {
       height: 100% !important;
       width: 60px !important;

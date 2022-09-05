@@ -6,7 +6,9 @@ const Title = styled.h1`
   color: ${({ color }) => color || 'white'};
   @media (max-width: 768px) {
     font-size: 32px;
-    width: 360px;
+    width: 300px;
+    margin: 0;
+    left: 0;
     margin: 0;
   }
 `;

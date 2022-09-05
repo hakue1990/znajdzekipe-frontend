@@ -57,6 +57,7 @@ const Row = styled.div`
     width: 100%;
     padding-top: 52px;
     overflow: hidden;
+    background-color: #101935;
 
     img {
       width: 350px;
@@ -82,6 +83,7 @@ const RowText = styled(Row)`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #101935;
     p {
       margin-bottom: 10px;
     }
