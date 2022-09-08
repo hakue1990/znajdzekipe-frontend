@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Button = styled.button`
   margin: ${({ margin }) => margin};
@@ -9,8 +9,8 @@ const Button = styled.button`
   text-transform: uppercase;
   cursor: pointer;
   flex-shrink: 0;
-  font-family: "Inter UI", "SF Pro Display", -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+  font-family: 'Inter UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
     sans-serif;
   font-size: 14px;
   font-weight: 700;
@@ -24,6 +24,7 @@ const Button = styled.button`
   &:hover {
     box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
     transition-duration: 0.1s;
+    background-color: #87d68d;
   }
 `;
 

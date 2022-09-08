@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import Button from "../Button/Button";
-import Logo from "../../assets/images/logo.png";
+import styled from 'styled-components';
+import Button from '../Button/Button';
+import Logo from '../../assets/images/logo.png';
 
-import { BsFacebook, BsGithub, BsLinkedin } from "react-icons/bs";
+import { BsFacebook, BsGithub, BsLinkedin } from 'react-icons/bs';
 
 const Footer = () => (
   <Container>
@@ -15,22 +15,22 @@ const Footer = () => (
         reiciendis aperiam?
       </Paragraph>
       <div>
-        <FooterBtn>Szukaj ekipy</FooterBtn>
+        <FooterBtn>Szukaj</FooterBtn>
         <FooterBtn>Kontakt</FooterBtn>
       </div>
     </UpperRow>
     <Row>
-      <img src={Logo} alt="logo" />
+      <img src={Logo} alt='logo' />
       <span>© 2022 Znajdź ekipę . All Rights Reserved. </span>
       <SocialsContainer>
-        <a href="https://127.0.0.1">
-          <BsFacebook size="30px" />
+        <a href='https://127.0.0.1'>
+          <BsFacebook size='30px' />
         </a>
-        <a href="https://127.0.0.1">
-          <BsGithub size="30px" />
+        <a href='https://127.0.0.1'>
+          <BsGithub size='30px' />
         </a>
-        <a href="https://127.0.0.1">
-          <BsLinkedin size="30px" />
+        <a href='https://127.0.0.1'>
+          <BsLinkedin size='30px' />
         </a>
       </SocialsContainer>
     </Row>
@@ -83,14 +83,14 @@ const Row = styled.div`
     border-radius: 50%;
     position: relative;
     text-decoration: none;
-    color: white;
+    color: #f6ae2d;
     display: flex;
     justify-content: center;
     align-items: center;
 
     &:hover {
       background-color: black;
-      color: #f6ae2d;
+      color: #87d68d;
     }
   }
 `;
@@ -120,7 +120,7 @@ const Paragraph = styled.p`
 const Title = styled.h2`
   font-size: 40px;
   color: white;
-  @media (max-width: 768px){
+  @media (max-width: 768px) {
     font-size: 1.5rem;
   }
 `;
