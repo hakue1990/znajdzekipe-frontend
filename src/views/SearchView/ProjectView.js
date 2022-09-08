@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { collection, addDoc } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -10,6 +10,7 @@ const addGroup = async () => {
     const docRef = await addDoc(collection(db, "groups"), {
       name: "Testowa",
       kategoria: "Lorem",
+      users: "",
     });
     console.log("Document written with ID: ", docRef.id);
   } catch (e) {
@@ -19,6 +20,12 @@ const addGroup = async () => {
 
 const ProjectView = () => {
   const [user, loading, error] = useAuthState(auth);
+  const [searchText, setSearchText] = useState("");
+
+  const submitSearchGroups = (e) => {
+    e.preventDefault();
+    console.log(searchText);
+  };
 
   if (loading)
     return (
@@ -32,6 +39,16 @@ const ProjectView = () => {
       <Container>
         <h1>Tutaj możesz znaleźć ekipę</h1>
         <Button onClick={() => addGroup()}>Dodaj grupe</Button>
+        <SearchWrapper>
+          <form onSubmit={(e) => submitSearchGroups(e)}>
+            <input
+              type="text"
+              placeholder="wpisz czego szukasz..."
+              onChange={(e) => setSearchText(e.target.value)}
+            />
+            <input type="submit" value="Szukaj"></input>
+          </form>
+        </SearchWrapper>
       </Container>
     );
   } else
@@ -46,4 +63,10 @@ export default ProjectView;
 
 const Container = styled.div`
   min-height: 92vh;
+`;
+
+const SearchWrapper = styled.div`
+  width: 100vw;
+  display: flex;
+  justify-content: center;
 `;
