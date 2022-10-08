@@ -4,6 +4,7 @@ import { collection, addDoc } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { db, auth } from "../../firebase";
 import Button from "../../components/Button/Button";
+import SearchLocationInput from "./SearchLocationInput";
 
 const addGroup = async () => {
   try {
@@ -48,6 +49,7 @@ const ProjectView = () => {
             />
             <input type="submit" value="Szukaj"></input>
           </form>
+          <SearchLocationInput />
         </SearchWrapper>
       </Container>
     );

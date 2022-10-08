@@ -1,17 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './views/Root/App';
-import GlobalStyle from './theme/GlobalStyle';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./views/Root/App";
+import GlobalStyle from "./theme/GlobalStyle";
+import { CookiesProvider } from "react-cookie";
 
-import { BrowserRouter as Router } from 'react-router-dom';
-import Footer from './components/Footer/Footer';
+import { BrowserRouter as Router } from "react-router-dom";
+import Footer from "./components/Footer/Footer";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Router>
     <GlobalStyle />
-    <App />
-    <Footer/>
+    <CookiesProvider>
+      <App />
+    </CookiesProvider>
+    <Footer />
   </Router>
 );
