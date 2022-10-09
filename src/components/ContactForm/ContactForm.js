@@ -1,18 +1,18 @@
-import React, { useRef } from "react";
-import emailjs from "@emailjs/browser";
-import styled from "styled-components";
-import Button from "../Button/Button";
-import { useState } from "react";
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+import styled from 'styled-components';
+import Button from '../Button/Button';
+import { useState } from 'react';
 
-import MessageSentPopUp from "./MessageSentPopUp/MessageSentPopUp";
+import MessageSentPopUp from './MessageSentPopUp/MessageSentPopUp';
 
 const ContactForm = () => {
-  const [isOpen, togglePopUp] = useState(true);
+  const [isOpen, togglePopUp] = useState(false);
   const form = useRef();
 
-  function toggle(){
-    togglePopUp(prevOpen => !prevOpen)
-    console.log(isOpen)
+  function toggle() {
+    togglePopUp((prevOpen) => !prevOpen);
+    console.log(isOpen);
   }
 
   const sendEmail = (e) => {
@@ -20,10 +20,10 @@ const ContactForm = () => {
 
     emailjs
       .sendForm(
-        "service_38ye0dj",
-        "template_0qinh5x",
+        'service_38ye0dj',
+        'template_0qinh5x',
         form.current,
-        "JYFZJAGUVzxfHD-Im"
+        'JYFZJAGUVzxfHD-Im'
       )
       .then(
         (result) => {
@@ -33,32 +33,31 @@ const ContactForm = () => {
           console.log(error.text);
         }
       );
-      toggle();
+    toggle();
     e.target.reset();
   };
 
   return (
     <>
-          {isOpen && <MessageSentPopUp toggle={toggle}/>}
-      
+      {isOpen && <MessageSentPopUp toggle={toggle} />}
 
       <Form ref={form} onSubmit={sendEmail}>
         <InputContainer>
-          <Input type="text" name="user_name" autoComplete="off" required />
+          <Input type='text' name='user_name' autoComplete='off' required />
           <Label>
             <Content>imie:</Content>
           </Label>
           <Line />
         </InputContainer>
         <InputContainer>
-          <Input type="text" name="user_title" autoComplete="off" required />
+          <Input type='text' name='user_title' autoComplete='off' required />
           <Label>
             <Content>tytuł:</Content>
           </Label>
           <Line />
         </InputContainer>
         <InputContainer>
-          <Input type="email" name="user_email" autoComplete="on" required />
+          <Input type='email' name='user_email' autoComplete='on' required />
           <Label>
             <Content>email</Content>
           </Label>
@@ -66,13 +65,13 @@ const ContactForm = () => {
         </InputContainer>
         <TextWrapper>
           <Input
-            type="text"
-            name="message"
-            id="message"
+            type='text'
+            name='message'
+            id='message'
             required
-            autoComplete="off"
+            autoComplete='off'
           />
-          <Label htmlFor="message">
+          <Label htmlFor='message'>
             <TextAreaContent>wiadomość:</TextAreaContent>
           </Label>
           <Line />

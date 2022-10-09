@@ -1,14 +1,13 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import OKico from '../../../assets/images/OK-ico.png';
-import { useState } from "react";
-const MessageSent = ({toggle}) => {
-
+import { useState } from 'react';
+const MessageSent = ({ toggle }) => {
   return (
     <Container>
-      <CloseBtn onClick={() => toggle()} >
+      <CloseBtn onClick={() => toggle()}>
         <span></span>
       </CloseBtn>
-        <img src={OKico} alt="OK ico" />
+      <img src={OKico} alt='OK ico' />
       <p>wiadomość wysłana!</p>
     </Container>
   );
@@ -38,35 +37,32 @@ const Container = styled.div`
 `;
 
 const CloseBtn = styled.div`
-    width: 20px;
-    height: 20px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  span {
+    width: 100%;
+    height: 3px;
+    display: block;
+    background-color: black;
+    transform: rotate(-45deg);
     position: absolute;
-    top: 10px;
-    right: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-
-    span {
-
-        width: 100%;
-        height: 3px;
-        display: block;
-        background-color: black;
-        transform: rotate(-45deg);
-        position: absolute;
-        &:before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        background-color: black;
-        transform: rotate(90deg);
-
-
-        }
+    &:before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      transform: rotate(90deg);
     }
-`
+  }
+`;
 
 export default MessageSent;

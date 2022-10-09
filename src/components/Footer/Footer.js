@@ -1,9 +1,9 @@
-import styled from "styled-components";
-import Button from "../Button/Button";
-import Logo from "../../assets/images/logo.png";
+import styled from 'styled-components';
+import Button from '../Button/Button';
+import Logo from '../../assets/images/logo.png';
 
-import { BsFacebook, BsGithub, BsLinkedin } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { BsFacebook, BsGithub, BsLinkedin } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
 const Footer = () => (
   <Container>
@@ -14,22 +14,22 @@ const Footer = () => (
         wspólnie rozwijając razem wspólne hobby.
       </Paragraph>
       <div>
-        <LinkBtn to="/search">Szukaj</LinkBtn>
-        <LinkBtn to="/contact">Kontakt</LinkBtn>
+        <LinkBtn to='/search'>Szukaj</LinkBtn>
+        <LinkBtn to='/contact'>Kontakt</LinkBtn>
       </div>
     </UpperRow>
     <Row>
-      <img src={Logo} alt="logo" />
+      <img src={Logo} alt='logo' />
       <span>© 2022 Znajdź ekipę . All Rights Reserved. </span>
       <SocialsContainer>
-        <SocialIco href="https://127.0.0.1">
-          <BsFacebook size="30px" />
+        <SocialIco href='#'>
+          <BsFacebook size='30px' />
         </SocialIco>
-        <SocialIco href="https://127.0.0.1">
-          <BsGithub size="30px" />
+        <SocialIco href='#'>
+          <BsGithub size='30px' />
         </SocialIco>
-        <SocialIco href="https://127.0.0.1">
-          <BsLinkedin size="30px" />
+        <SocialIco href='#'>
+          <BsLinkedin size='30px' />
         </SocialIco>
       </SocialsContainer>
     </Row>
@@ -108,7 +108,7 @@ const Title = styled.h2`
 `;
 
 const LinkBtn = styled(Link)`
- margin: 20px ;
+  margin: 20px;
   background-color: #f6ae2d;
   border-radius: 18px;
   border-style: none;
