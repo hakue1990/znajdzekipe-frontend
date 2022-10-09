@@ -2,9 +2,9 @@ import React from "react";
 
 import styled, { css } from "styled-components";
 import ContactImg from "../../assets/images/ContactImg.webp";
-import Button from '../../components/Button/Button'
+import Button from "../../components/Button/Button";
 
-import ContactForm from '../../components/ContactForm/ContactForm'
+import ContactForm from "../../components/ContactForm/ContactForm";
 
 const ContactSection = () => (
   <>
@@ -13,8 +13,7 @@ const ContactSection = () => (
         <h1>
           napisz do <span style={{ color: "#f6ae2d" }}>nas</span>!
         </h1>
-      <ContactForm/>
-        
+        <ContactForm />
       </Row>
       <Row>
         <img src={ContactImg} alt="Contact" />
@@ -65,5 +64,3 @@ const Row = styled.div`
       align-items: center;
     `}
 `;
-
-
