@@ -1,37 +1,36 @@
-import styled from 'styled-components';
-import Button from '../Button/Button';
-import Logo from '../../assets/images/logo.png';
+import styled from "styled-components";
+import Button from "../Button/Button";
+import Logo from "../../assets/images/logo.png";
 
-import { BsFacebook, BsGithub, BsLinkedin } from 'react-icons/bs';
+import { BsFacebook, BsGithub, BsLinkedin } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const Footer = () => (
   <Container>
     <UpperRow>
       <Title>Znajdź ekipę do!</Title>
       <Paragraph>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
-        voluptatum inventore velit ipsa minus et itaque repellendus perspiciatis
-        praesentium dolor ex quae dolorem, id quisquam cum quibusdam alias
-        reiciendis aperiam?
+        Innowacyjna platforma do nawiązywania znajomości, spędzania czasu
+        wspólnie rozwijając razem wspólne hobby.
       </Paragraph>
       <div>
-        <FooterBtn>Szukaj</FooterBtn>
-        <FooterBtn>Kontakt</FooterBtn>
+        <LinkBtn to="/search">Szukaj</LinkBtn>
+        <LinkBtn to="/contact">Kontakt</LinkBtn>
       </div>
     </UpperRow>
     <Row>
-      <img src={Logo} alt='logo' />
+      <img src={Logo} alt="logo" />
       <span>© 2022 Znajdź ekipę . All Rights Reserved. </span>
       <SocialsContainer>
-        <a href='https://127.0.0.1'>
-          <BsFacebook size='30px' />
-        </a>
-        <a href='https://127.0.0.1'>
-          <BsGithub size='30px' />
-        </a>
-        <a href='https://127.0.0.1'>
-          <BsLinkedin size='30px' />
-        </a>
+        <SocialIco href="https://127.0.0.1">
+          <BsFacebook size="30px" />
+        </SocialIco>
+        <SocialIco href="https://127.0.0.1">
+          <BsGithub size="30px" />
+        </SocialIco>
+        <SocialIco href="https://127.0.0.1">
+          <BsLinkedin size="30px" />
+        </SocialIco>
       </SocialsContainer>
     </Row>
   </Container>
@@ -75,24 +74,6 @@ const Row = styled.div`
     color: white;
     letter-spacing: 3px;
   }
-  a {
-    width: 40px;
-    height: 40px;
-    display: inline-block;
-    margin: 5px;
-    border-radius: 50%;
-    position: relative;
-    text-decoration: none;
-    color: #f6ae2d;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    &:hover {
-      background-color: black;
-      color: #87d68d;
-    }
-  }
 `;
 
 const UpperRow = styled(Row)`
@@ -109,8 +90,9 @@ const UpperRow = styled(Row)`
 
 const Paragraph = styled.p`
   font-size: 22px;
-  margin: 20px;
+  margin: 40px;
   color: white;
+  width: 60%;
   @media (max-width: 768px) {
     margin: 20px 20px;
     font-size: 16px;
@@ -125,7 +107,50 @@ const Title = styled.h2`
   }
 `;
 
-const FooterBtn = styled(Button)`
-  margin: 15px;
-  width: 138px;
+const LinkBtn = styled(Link)`
+ margin: 20px ;
+  background-color: #f6ae2d;
+  border-radius: 18px;
+  border-style: none;
+  color: black;
+  text-transform: uppercase;
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-family: 'Inter UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+    sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 15px 20px;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+  transition: all 0.5s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  &:hover {
+    box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
+    transition-duration: 0.1s;
+    background-color: #87d68d;
+  }
+`;
+
+const SocialIco = styled.a`
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  margin: 5px;
+  border-radius: 50%;
+  position: relative;
+  text-decoration: none;
+  color: #f6ae2d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: black;
+    color: #87d68d;
+  }
 `;

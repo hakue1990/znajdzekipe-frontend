@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import OKico from '../../../assets/images/OK-ico.png';
-const MessageSent = () => {
+import { useState } from "react";
+const MessageSent = ({toggle}) => {
+
   return (
     <Container>
-      <CloseBtn onClick={(e) => e.target.parentElement.style.display = 'none'}>
+      <CloseBtn onClick={() => toggle()} >
         <span></span>
       </CloseBtn>
         <img src={OKico} alt="OK ico" />
@@ -53,7 +55,7 @@ const CloseBtn = styled.div`
         display: block;
         background-color: black;
         transform: rotate(-45deg);
-        position: relative;
+        position: absolute;
         &:before {
             content: "";
             position: absolute;
