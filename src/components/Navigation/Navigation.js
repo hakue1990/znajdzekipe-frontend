@@ -54,10 +54,18 @@ const Navbar = () => {
         <span />
       </Hamburger>
       <Menu isOpen={isOpen}>
-        <MenuLink to='/'>Home</MenuLink>
-        <MenuLink to='/chat'>Czat</MenuLink>
-        <MenuLink to='/search'>Szukaj</MenuLink>
-        <MenuLink to='/contact'>Kontakt</MenuLink>
+        <MenuLink to='/' onClick={() => setIsOpen(false)}>
+          Home
+        </MenuLink>
+        <MenuLink to='/chat' onClick={() => setIsOpen(false)}>
+          Czat
+        </MenuLink>
+        <MenuLink to='/search' onClick={() => setIsOpen(false)}>
+          Szukaj
+        </MenuLink>
+        <MenuLink to='/contact' onClick={() => setIsOpen(false)}>
+          Kontakt
+        </MenuLink>
         <Button margin='20px 15px' onClick={signIn}>
           Zaloguj się
         </Button>

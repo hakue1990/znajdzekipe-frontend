@@ -14,7 +14,7 @@ const MessageSent = ({ toggle }) => {
 };
 
 const Container = styled.div`
-  position: absolute;
+  position: relative;
   top: 20%;
   right: 200px;
   width: 470px;
@@ -33,6 +33,23 @@ const Container = styled.div`
   img {
     position: absolute;
     left: 60px;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    z-index: 2;
+    right: 0;
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+
+    img {
+      position: relative;
+      width: 32px;
+      height: 32px;
+      left: 10px;
+      display: block;
+    }
   }
 `;
 
