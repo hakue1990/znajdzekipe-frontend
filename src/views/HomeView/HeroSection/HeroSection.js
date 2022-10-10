@@ -3,17 +3,20 @@ import styled, { css } from 'styled-components';
 import HeroImg from '../../../assets/images/HeroImg.webp';
 import Title from '../../../components/Title/Title';
 import Button from '../../../components/Button/Button';
+import BG from '../../../assets/images/BG.png';
 
 const HeroSection = () => (
   <>
     <Container>
       <Row column>
-        <Title color='#F6AE2D' size='52px' margin='0 120px'>
-          Szukasz Ekipy ?
+        <Title color='#F6AE2D' size='100px' margin='0 120px'>
+          Czy to
         </Title>
-        <Title size='40px' margin='0 120px'>
-          Innowacyjna platforma, która pozwoli ci na robienie rzeczy{' '}
-          <span style={{ color: '#F6AE2D' }}>wspólnie</span>!
+        <Title size='100px' margin='0 120px' width='700px'>
+          właśnie ty?
+        </Title>
+        <Title size='100px' margin='0 120px' width='900px'>
+          Szukasz ekipy!
         </Title>
         <Button margin='40px 120px'>znajdz ekipę!</Button>
       </Row>
@@ -31,6 +34,7 @@ const Container = styled.div`
   background-color: black;
   color: white;
   display: flex;
+  background-image: url(${BG});
   @media (max-width: 768px) {
     flex-direction: column-reverse;
     background-color: #101935;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import OKico from '../../../assets/images/OK-ico.png';
-import { useState } from 'react';
+
 const MessageSent = ({ toggle }) => {
   return (
     <Container>
@@ -48,7 +48,7 @@ const Container = styled.div`
       width: 32px;
       height: 32px;
       left: 10px;
-      display: block;
+      display: none;
     }
   }
 `;

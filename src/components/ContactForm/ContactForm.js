@@ -7,7 +7,7 @@ import { useState } from 'react';
 import MessageSentPopUp from './MessageSentPopUp/MessageSentPopUp';
 
 const ContactForm = () => {
-  const [isOpen, togglePopUp] = useState(true);
+  const [isOpen, togglePopUp] = useState(false);
   const form = useRef();
 
   function toggle() {

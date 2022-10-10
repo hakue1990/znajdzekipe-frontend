@@ -2,7 +2,6 @@ import React from 'react';
 
 import styled, { css } from 'styled-components';
 import ContactImg from '../../assets/images/ContactImg.webp';
-import Button from '../../components/Button/Button';
 
 import ContactForm from '../../components/ContactForm/ContactForm';
 
