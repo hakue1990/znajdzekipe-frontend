@@ -4,6 +4,7 @@ import HeroImg from '../../../assets/images/HeroImg.webp';
 import Title from '../../../components/Title/Title';
 import Button from '../../../components/Button/Button';
 import BG from '../../../assets/images/BG.png';
+import Slides from '../../../components/Slides/Slides';
 
 const HeroSection = () => (
   <>
@@ -23,6 +24,7 @@ const HeroSection = () => (
       <Row>
         <img src={HeroImg} alt='Hero' />
       </Row>
+      <Slides />
     </Container>
   </>
 );

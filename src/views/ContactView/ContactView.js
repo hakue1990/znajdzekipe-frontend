@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components';
 import ContactImg from '../../assets/images/ContactImg.webp';
 
 import ContactForm from '../../components/ContactForm/ContactForm';
+import BG from '../../assets/images/BG.png';
 
 const ContactSection = () => (
   <>
@@ -28,6 +29,7 @@ const Container = styled.div`
   background-color: black;
   color: white;
   display: flex;
+  background-image: url(${BG});
   @media (max-width: 768px) {
     flex-direction: column;
     background-color: white;

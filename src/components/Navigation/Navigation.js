@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import Button from '../Button/Button';
 import { signInWithPopup, signOut } from 'firebase/auth';
 import { auth, provider } from '../../firebase';
-import { useCookies } from 'react-cookie';
+// import { useCookies } from 'react-cookie';
 
 const postData = (accessToken) => {
   fetch('http://127.0.0.1:8000/api/login', {
@@ -22,7 +22,7 @@ const postData = (accessToken) => {
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [cookies, setCookie] = useCookies(['cookie-name']);
+  // const [cookies, setCookie] = useCookies(['cookie-name']);
 
   const signIn = () => {
     signInWithPopup(auth, provider)
@@ -72,7 +72,7 @@ const Navbar = () => {
         <Button margin='20px 15px' onClick={logOut}>
           Wyloguj się
         </Button>
-        {console.log(cookies)}
+        {/* {console.log(cookies)} */}
       </Menu>
     </Nav>
   );
