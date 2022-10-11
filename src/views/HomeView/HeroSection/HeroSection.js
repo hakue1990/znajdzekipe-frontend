@@ -24,7 +24,6 @@ const HeroSection = () => (
       <Row>
         <img src={HeroImg} alt='Hero' />
       </Row>
-      <Slides />
     </Container>
   </>
 );
