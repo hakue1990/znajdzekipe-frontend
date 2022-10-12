@@ -1,9 +1,10 @@
-import React from "react";
-import styled from "styled-components";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../firebase";
-import ListOfGroups from "./ListOfGroups";
-import Chat from "./Chat";
+import React from 'react';
+import styled from 'styled-components';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../../firebase';
+import ListOfGroups from './ListOfGroups';
+import Chat from './Chat';
+import LoginView from '../LoginView/LoginView';
 
 const HomeView = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -32,7 +33,7 @@ const HomeView = () => {
   } else
     return (
       <Container>
-        <h1>Aby skorzystać z tej funkcji musisz się zalogować</h1>
+        <LoginView />
       </Container>
     );
 };
@@ -40,9 +41,11 @@ const HomeView = () => {
 export default HomeView;
 
 const Container = styled.div`
-  min-height: 92vh;
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const GroupsPanel = styled.div``;

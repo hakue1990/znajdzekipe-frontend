@@ -6,6 +6,8 @@ import ContactImg from '../../assets/images/ContactImg.webp';
 import ContactForm from '../../components/ContactForm/ContactForm';
 import BG from '../../assets/images/BG.png';
 
+import LoginView from '../LoginView/LoginView';
+
 const ContactSection = () => (
   <>
     <Container>
