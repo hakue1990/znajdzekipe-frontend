@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-import LoginViewImg from '../../assets/images/home.svg';
+import LoginViewImg from '../../assets/images/wyszukiwanie.svg';
 
 import Button from '../../components/Button/Button';
 import Title from '../../components/Title/Title';
 
-const LoginView = () => {
+const LoginView = ({ img }) => {
   const Container = styled.div`
     width: 100%;
     height: 90vh;
@@ -42,7 +42,7 @@ const LoginView = () => {
   return (
     <Container>
       <ImageSection>
-        <Image src={LoginViewImg} alt='Login View Background' />
+        <Image src={img} alt='Login View Background' />
       </ImageSection>
       <TextSection>
         <Title color='black' size='70px'>

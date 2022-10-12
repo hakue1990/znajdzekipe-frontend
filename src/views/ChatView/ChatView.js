@@ -5,6 +5,7 @@ import { auth } from '../../firebase';
 import ListOfGroups from './ListOfGroups';
 import Chat from './Chat';
 import LoginView from '../LoginView/LoginView';
+import czat from '../../assets/images/czat.jpg';
 
 const HomeView = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -33,7 +34,7 @@ const HomeView = () => {
   } else
     return (
       <Container>
-        <LoginView />
+        <LoginView img={czat} />
       </Container>
     );
 };
@@ -46,6 +47,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #fbf1e7;
 `;
 
 const GroupsPanel = styled.div``;

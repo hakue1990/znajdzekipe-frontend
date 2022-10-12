@@ -6,6 +6,7 @@ import { db, auth } from '../../firebase';
 import Button from '../../components/Button/Button';
 import SearchLocationInput from './SearchLocationInput';
 import LoginView from '../LoginView/LoginView';
+import wyszukiwanie from '../../assets/images/wyszukiwanie.svg';
 
 const addGroup = async () => {
   try {
@@ -54,7 +55,7 @@ const ProjectView = () => {
         </SearchWrapper>
       </Container>
     );
-  } else return <LoginView />;
+  } else return <LoginView img={wyszukiwanie} />;
 };
 
 export default ProjectView;
