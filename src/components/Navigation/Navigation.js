@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import LogoImg from '../../assets/images/logo.png';
-import { NavLink } from 'react-router-dom';
-import Button from '../Button/Button';
-import { signInWithPopup, signOut } from 'firebase/auth';
-import { auth, provider } from '../../firebase';
-// import { useCookies } from 'react-cookie';
-=======
 import React, { useState } from "react";
 import styled from "styled-components";
 import LogoImg from "../../assets/images/logo.png";
@@ -15,9 +5,7 @@ import { NavLink } from "react-router-dom";
 import Button from "../Button/Button";
 import { signInWithPopup, signOut } from "firebase/auth";
 import { auth, provider } from "../../firebase";
-import { getCookie } from "../../utils/getCookie";
 import { setCookie } from "../../utils/setCookie";
->>>>>>> michal
 
 const postData = (accessToken) => {
   fetch("https://backend.szukamekipydo.pl/api/login", {
@@ -37,10 +25,6 @@ const postData = (accessToken) => {
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-<<<<<<< HEAD
-  // const [cookies, setCookie] = useCookies(['cookie-name']);
-=======
->>>>>>> michal
 
   const signIn = () => {
     signInWithPopup(auth, provider)
@@ -90,11 +74,6 @@ const Navbar = () => {
         <Button margin="20px 15px" onClick={logOut}>
           Wyloguj się
         </Button>
-<<<<<<< HEAD
-        {/* {console.log(cookies)} */}
-=======
-        {console.log(getCookie())}
->>>>>>> michal
       </Menu>
     </Nav>
   );

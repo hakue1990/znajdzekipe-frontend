@@ -5,6 +5,24 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { db, auth } from "../../firebase";
 import Button from "../../components/Button/Button";
 import SearchLocationInput from "./SearchLocationInput";
+import { getCookie } from "../../utils/getCookie";
+
+const getWords = () => {
+  const cookieValue = getCookie();
+  fetch("https://backend.szukamekipydo.pl/api/keyword", {
+    method: "GET",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: `${cookieValue}`,
+    },
+  })
+    .then((respnose) => respnose.json())
+    .then((data) => {
+      console.log(data);
+    });
+};
 
 const addGroup = async () => {
   try {
@@ -41,6 +59,7 @@ const ProjectView = () => {
         <h1>Tutaj możesz znaleźć ekipę</h1>
         <Button onClick={() => addGroup()}>Dodaj grupe</Button>
         <SearchWrapper>
+          <Button onClick={() => getWords()}>POBIRAJ SŁOWA</Button>
           <form onSubmit={(e) => submitSearchGroups(e)}>
             <input
               type="text"
