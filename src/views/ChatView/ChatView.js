@@ -47,7 +47,6 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #fbf1e7;
 `;
 
 const GroupsPanel = styled.div``;
