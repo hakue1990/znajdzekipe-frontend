@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { withTheme } from 'styled-components';
 
 const slideStyles = {
   width: '100%',
@@ -41,9 +42,10 @@ const dotsContainerStyles = {
 };
 
 const dotStyle = {
-  margin: '0 3px',
+  margin: '15px 4px',
   cursor: 'pointer',
   fontSize: '20px',
+  color: 'white',
 };
 
 const ImageSlider = ({ slides }) => {
@@ -64,7 +66,7 @@ const ImageSlider = ({ slides }) => {
   const slideStylesWidthBackground = {
     ...slideStyles,
     backgroundImage: `url(${slides[currentIndex].url})`,
-    transition: 'all 21s, height 14s',
+    transition: 'all 3s ease',
   };
 
   return (

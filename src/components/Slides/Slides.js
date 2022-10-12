@@ -2,13 +2,20 @@ import ImageSlider from './ImageSlider/ImageSlider';
 import styled from 'styled-components';
 import Title from '../Title/Title';
 
+import footballImage from '../../assets/images/slider/footballImg.webp';
+import pubImage from '../../assets/images/slider/pubImg.webp';
+import chessImage from '../../assets/images/slider/chessImg.webp';
+import cofeeImage from '../../assets/images/slider/coffeeImg.webp';
+import singImage from '../../assets/images/slider/sing.webp';
+import BG from '../../assets/images/BG.png';
+
 const Slides = () => {
   const slides = [
-    { url: 'https://picsum.photos/id/237/200/300', title: 'Dog' },
-    { url: 'https://picsum.photos/id/217/200/300', title: 'Lake' },
-    { url: 'https://picsum.photos/id/257/200/300', title: 'Canal' },
-    { url: 'https://picsum.photos/id/267/200/300', title: 'Beach' },
-    { url: 'https://picsum.photos/id/287/200/300', title: 'Mountain' },
+    { url: singImage, title: 'Sing' },
+    { url: pubImage, title: 'Pub' },
+    { url: footballImage, title: 'Football' },
+    { url: chessImage, title: 'Chess' },
+    { url: cofeeImage, title: 'Beach' },
   ];
 
   const SectionContainer = styled.div`
@@ -18,19 +25,31 @@ const Slides = () => {
     justify-content: center;
     align-items: center;
     text-align: center;
+    background-image: url(${BG});
+    background-color: #000;
   `;
 
   const ImagesWrapper = styled.div`
-    width: 600px;
-    height: 336px;
+    width: 720px;
+    height: 403px;
     margin: 0 auto;
+    @media (max-width: 768px) {
+      width: 100vw;
+    }
+  `;
+
+  const SlidesTitle = styled(Title)`
+    @media (max-width: 768px) {
+      font-size: 28px;
+      margin: 20px;
+    }
   `;
 
   return (
     <SectionContainer>
-      <Title color='black' size='40px' margin='40px 0'>
+      <SlidesTitle color='white' size='30px' margin='40px 0'>
         Znajdz Ekipe do!
-      </Title>
+      </SlidesTitle>
       <ImagesWrapper>
         <ImageSlider slides={slides} />
       </ImagesWrapper>
@@ -39,9 +58,3 @@ const Slides = () => {
 };
 
 export default Slides;
-
-// const slidesContainer = styled.div`
-// width: '500px';
-// height: '280px';
-// margin: '0 auto';
-// `;
