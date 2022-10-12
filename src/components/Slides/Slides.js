@@ -1,6 +1,7 @@
 import ImageSlider from './ImageSlider/ImageSlider';
 import styled from 'styled-components';
 import Title from '../Title/Title';
+
 const Slides = () => {
   const slides = [
     { url: 'https://picsum.photos/id/237/200/300', title: 'Dog' },
@@ -9,31 +10,38 @@ const Slides = () => {
     { url: 'https://picsum.photos/id/267/200/300', title: 'Beach' },
     { url: 'https://picsum.photos/id/287/200/300', title: 'Mountain' },
   ];
-  const containerStyles = {
-    width: '500px',
-    height: '280px',
-    margin: '0 auto',
-  };
 
-  const SlidesContainer = styled.div`
-    height: 60vh;
+  const SectionContainer = styled.div`
+    height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: black;
+    text-align: center;
+  `;
+
+  const ImagesWrapper = styled.div`
+    width: 600px;
+    height: 336px;
+    margin: 0 auto;
   `;
 
   return (
-    <SlidesContainer>
-      <Title color='black' size='40px' margin='20px 0'>
+    <SectionContainer>
+      <Title color='black' size='40px' margin='40px 0'>
         Znajdz Ekipe do!
       </Title>
-      <div style={containerStyles}>
+      <ImagesWrapper>
         <ImageSlider slides={slides} />
-      </div>
-    </SlidesContainer>
+      </ImagesWrapper>
+    </SectionContainer>
   );
 };
 
 export default Slides;
+
+// const slidesContainer = styled.div`
+// width: '500px';
+// height: '280px';
+// margin: '0 auto';
+// `;

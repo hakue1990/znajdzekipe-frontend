@@ -64,6 +64,7 @@ const ImageSlider = ({ slides }) => {
   const slideStylesWidthBackground = {
     ...slideStyles,
     backgroundImage: `url(${slides[currentIndex].url})`,
+    transition: 'all 21s, height 14s',
   };
 
   return (
