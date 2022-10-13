@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import HeroImg from '../../../assets/images/HeroImg.webp';
+import HeroImg from '../../../assets/images/kariera.svg';
 import Title from '../../../components/Title/Title';
 import Button from '../../../components/Button/Button';
 import BG from '../../../assets/images/BG.png';
@@ -57,8 +57,8 @@ const Row = styled.div`
 
   img {
     position: relative;
-    right: 120px;
     top: 80px;
+    width: 800px;
   }
 
   @media (max-width: 768px) {
