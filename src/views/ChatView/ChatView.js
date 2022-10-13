@@ -7,7 +7,7 @@ import Chat from './Chat';
 import LoginView from '../LoginView/LoginView';
 import czat from '../../assets/images/czat.jpg';
 
-const HomeView = () => {
+const HomeView = ({ signIn }) => {
   const [user, loading, error] = useAuthState(auth);
 
   if (loading)
@@ -34,7 +34,7 @@ const HomeView = () => {
   } else
     return (
       <Container>
-        <LoginView img={czat} />
+        <LoginView img={czat} signIn={signIn} />
       </Container>
     );
 };

@@ -5,7 +5,7 @@ import LoginViewImg from '../../assets/images/wyszukiwanie.svg';
 import Button from '../../components/Button/Button';
 import Title from '../../components/Title/Title';
 
-const LoginView = ({ img }) => {
+const LoginView = ({ img, signIn }) => {
   const Container = styled.div`
     width: 100%;
     height: 90vh;
@@ -51,7 +51,7 @@ const LoginView = ({ img }) => {
         <Title color='black' size='50px'>
           Najpierw się Zaloguj!
         </Title>
-        <LoginViewBtn>Zaloguj się</LoginViewBtn>
+        <LoginViewBtn onClick={signIn}>Zaloguj się</LoginViewBtn>
       </TextSection>
     </Container>
   );

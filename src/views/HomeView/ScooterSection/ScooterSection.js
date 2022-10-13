@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import ScooterImg from '../../../assets/images/ScooterImg.webp';
+import ScooterImg from '../../../assets/images/certyfikaty.svg';
 
 import FootbalIco from '../../../assets/images/FootbalIco.png';
 import beerIco from '../../../assets/images/beerIco.png';
