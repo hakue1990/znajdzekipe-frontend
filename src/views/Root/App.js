@@ -9,6 +9,7 @@ import ProjectView from '../SearchView/ProjectView';
 import { setCookie } from '../../utils/setCookie';
 import { signInWithPopup, signOut } from 'firebase/auth';
 import { auth, provider } from '../../firebase';
+import styled from 'styled-components';
 
 const postData = (accessToken) => {
   fetch('https://backend.szukamekipydo.pl/api/login', {
@@ -47,8 +48,13 @@ const App = () => {
         console.log(error);
       });
   };
+
+  const AppContainer = styled.div`
+    overflow-x: hidden;
+    width: 100vw;
+  `;
   return (
-    <>
+    <AppContainer>
       <Navigation signIn={signIn} logOut={logOut} />
       <Routes>
         <Route path='/' element={<HomeView />} />
@@ -62,7 +68,7 @@ const App = () => {
         />
         <Route path='/contact' element={<ContactView />} />
       </Routes>
-    </>
+    </AppContainer>
   );
 };
 
