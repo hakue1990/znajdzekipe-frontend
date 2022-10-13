@@ -90,7 +90,7 @@ const MobileTitle = styled(Title)`
   display: none;
   @media (max-width: 768px) {
     display: block;
-
+    text-align: center;
     font-size: 1.5rem;
     margin: 30px 0px;
   }

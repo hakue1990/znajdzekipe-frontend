@@ -17,6 +17,9 @@ const LoginView = ({ img, signIn }) => {
 
   const Image = styled.img`
     height: 600px;
+    @media (max-width: 768px) {
+      position: absolute;
+    }
   `;
 
   const TextSection = styled.div`
@@ -25,6 +28,11 @@ const LoginView = ({ img, signIn }) => {
     justify-content: center;
     width: 50%;
     text-align: left;
+    @media (max-width: 768px) {
+      z-index: 2;
+      position: relative;
+      left: -23vw;
+    }
   `;
 
   const ImageSection = styled.div`
@@ -38,6 +46,21 @@ const LoginView = ({ img, signIn }) => {
   const LoginViewBtn = styled(Button)`
     width: 300px;
     margin: 20px;
+    @media (max-width: 768px) {
+      position: relative;
+      left: -80px;
+      background-color: #f6ae2d;
+      border: 3px solid black;
+    }
+  `;
+
+  const LoginText = styled(Title)`
+    @media (max-width: 768px) {
+      font-size: 30px;
+      letter-spacing: 5px;
+      line-height: 60px;
+      position: relative;
+    }
   `;
   return (
     <Container>
@@ -45,12 +68,10 @@ const LoginView = ({ img, signIn }) => {
         <Image src={img} alt='Login View Background' />
       </ImageSection>
       <TextSection>
-        <Title color='black' size='70px'>
-          Hola hola
-        </Title>
-        <Title color='black' size='50px'>
-          Najpierw się Zaloguj!
-        </Title>
+        <LoginText color='black' size='70px'>
+          Hola hola!
+        </LoginText>
+        <LoginText color='black'>Najpierw się Zaloguj!</LoginText>
         <LoginViewBtn onClick={signIn}>Zaloguj się</LoginViewBtn>
       </TextSection>
     </Container>
