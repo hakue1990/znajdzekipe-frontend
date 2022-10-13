@@ -56,10 +56,13 @@ const LoginView = ({ img, signIn }) => {
 
   const LoginText = styled(Title)`
     @media (max-width: 768px) {
-      font-size: 30px;
+      font-size: 40px;
       letter-spacing: 5px;
       line-height: 60px;
       position: relative;
+      width: 100vw;
+      left: -60px;
+      top: -250px;
     }
   `;
   return (
