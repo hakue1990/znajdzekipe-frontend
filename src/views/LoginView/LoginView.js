@@ -19,6 +19,8 @@ const LoginView = ({ img, signIn }) => {
     height: 600px;
     @media (max-width: 768px) {
       position: absolute;
+      width: 500px;
+      left: 3px;
     }
   `;
 
@@ -62,7 +64,7 @@ const LoginView = ({ img, signIn }) => {
       position: relative;
       width: 100vw;
       left: -60px;
-      top: -250px;
+      top: -15npm run %;
     }
   `;
   return (

@@ -37,7 +37,7 @@ const Container = styled.div`
   display: flex;
   background-image: url(${BG});
   @media (max-width: 768px) {
-    flex-direction: column-reverse;
+    flex-direction: column;
     background-color: #101935;
   }
 
