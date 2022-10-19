@@ -23,7 +23,12 @@ export const loadScript = (url, callback) => {
 };
 
 // handle when the script is loaded we will assign autoCompleteRef with google maps place autocomplete
-export function handleScriptLoad(updateQuery, autoCompleteRef) {
+export function handleScriptLoad(
+  updateQuery,
+  autoCompleteRef,
+  handleLatitude,
+  handleLongitude
+) {
   // assign autoComplete with Google maps place one time
   autoComplete = new window.google.maps.places.Autocomplete(
     autoCompleteRef.current,
@@ -37,11 +42,11 @@ export function handleScriptLoad(updateQuery, autoCompleteRef) {
   ]); // specify what properties we will get from API
   // add a listener to handle when the place is selected
   autoComplete.addListener("place_changed", () =>
-    handlePlaceSelect(updateQuery)
+    handlePlaceSelect(updateQuery, handleLatitude, handleLongitude)
   );
 }
 
-async function handlePlaceSelect(updateQuery) {
+async function handlePlaceSelect(updateQuery, handleLatitude, handleLongitude) {
   const addressObject = autoComplete.getPlace(); // get place from google api
   if (!addressObject.geometry || !addressObject.geometry.location) {
     // User entered the name of a Place that was not suggested and
@@ -56,17 +61,25 @@ async function handlePlaceSelect(updateQuery) {
   const lng = addressObject.geometry.location.lng();
   const name = addressObject.name;
   updateQuery(query);
+  handleLatitude(lat);
+  handleLongitude(lng);
   console.log(lat, lng, name);
 }
 
-function SearchLocationInput() {
+function SearchLocationInput({ handleLatitude, handleLongitude }) {
   const [query, setQuery] = useState("");
   const autoCompleteRef = useRef(null);
 
   useEffect(() => {
     loadScript(
       `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&libraries=places`,
-      () => handleScriptLoad(setQuery, autoCompleteRef)
+      () =>
+        handleScriptLoad(
+          setQuery,
+          autoCompleteRef,
+          handleLatitude,
+          handleLongitude
+        )
     );
   }, []);
 

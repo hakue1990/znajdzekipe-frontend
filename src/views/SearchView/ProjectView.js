@@ -9,10 +9,26 @@ import LoginView from "../LoginView/LoginView";
 import wyszukiwanie from "../../assets/images/wyszukiwanie.svg";
 import { getCookie } from "../../utils/getCookie";
 
-const getWords = () => {
+const getWords = (
+  text,
+  latitude,
+  longitude,
+  minDate,
+  maxDate,
+  minTime,
+  maxTime
+) => {
   const data = {
-    inputString: "testowe zapytanie do szukania ekipy",
+    inputString: `${text}`,
+    latitude: latitude,
+    longitude: longitude,
+    minDate: `${minDate}`,
+    maxDate: `${maxDate}`,
+    minTime: `${minTime}`,
+    maxTime: `${maxTime}`,
   };
+
+  console.log(data);
 
   const cookieValue = getCookie();
   fetch("https://backend.szukamekipydo.pl/api/keyword", {
@@ -47,6 +63,12 @@ const addGroup = async () => {
 const ProjectView = ({ signIn }) => {
   const [user, loading, error] = useAuthState(auth);
   const [searchText, setSearchText] = useState("");
+  const [latitude, setLatitude] = useState();
+  const [longitude, setLongitude] = useState();
+  const [minDate, setMinDate] = useState();
+  const [maxDate, setMaxDate] = useState();
+  const [minTime, setMinTime] = useState();
+  const [maxTime, setMaxTime] = useState();
 
   const submitSearchGroups = (e) => {
     e.preventDefault();
@@ -66,7 +88,33 @@ const ProjectView = ({ signIn }) => {
         <h1>Tutaj możesz znaleźć ekipę</h1>
         <Button onClick={() => addGroup()}>Dodaj grupe</Button>
         <SearchWrapper>
-          <Button onClick={() => getWords()}>POBIRAJ SŁOWA</Button>
+          <Button
+            onClick={() =>
+              getWords(
+                searchText,
+                latitude,
+                longitude,
+                minDate,
+                maxDate,
+                minTime,
+                maxTime
+              )
+            }
+          >
+            POBIRAJ SŁOWA
+          </Button>
+          <DateTimeWrapper>
+            <div>
+              <label>Od</label>
+              <input type="date" onChange={(e) => setMinDate(e.target.value)} />
+              <input type="time" onChange={(e) => setMaxDate(e.target.value)} />
+            </div>
+            <div>
+              <label>Do</label>
+              <input type="date" onChange={(e) => setMinTime(e.target.value)} />
+              <input type="time" onChange={(e) => setMaxTime(e.target.value)} />
+            </div>
+          </DateTimeWrapper>
           <form onSubmit={(e) => submitSearchGroups(e)}>
             <input
               type="text"
@@ -75,7 +123,10 @@ const ProjectView = ({ signIn }) => {
             />
             <input type="submit" value="Szukaj"></input>
           </form>
-          <SearchLocationInput />
+          <SearchLocationInput
+            handleLatitude={setLatitude}
+            handleLongitude={setLongitude}
+          />
         </SearchWrapper>
       </Container>
     );
@@ -93,3 +144,5 @@ const SearchWrapper = styled.div`
   display: flex;
   justify-content: center;
 `;
+
+const DateTimeWrapper = styled.div``;
