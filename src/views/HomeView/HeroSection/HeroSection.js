@@ -5,6 +5,8 @@ import Title from '../../../components/Title/Title';
 import Button from '../../../components/Button/Button';
 import BG from '../../../assets/images/pattern.png';
 
+import CookieConsent from 'react-cookie-consent';
+
 const HeroSection = () => (
   <>
     <Container>
@@ -23,6 +25,19 @@ const HeroSection = () => (
       <Row>
         <img src={HeroImg} alt='Hero' />
       </Row>
+      <CookieConsent
+        location='bottom'
+        buttonText='Akceptuje'
+        cookieName='myAwesomeCookieName2'
+        style={{ background: '#45798a' }}
+        buttonStyle={{ color: '#4e503b', fontSize: '13px' }}
+        expires={150}
+      >
+        Ta strona używa ciasteczek Cookie, poznaj naszą politykę prywatności!{' '}
+        <span style={{ fontSize: '10px' }}>
+          Dane przekazujemy zaufanym partnerom !
+        </span>
+      </CookieConsent>
     </Container>
   </>
 );

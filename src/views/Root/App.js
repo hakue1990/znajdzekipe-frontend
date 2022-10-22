@@ -11,6 +11,8 @@ import { signInWithPopup, signOut } from 'firebase/auth';
 import { auth, provider } from '../../firebase';
 import styled from 'styled-components';
 
+import CookieConsent from 'react-cookie-consent';
+
 const postData = (accessToken) => {
   fetch('https://backend.szukamekipydo.pl/api/login', {
     method: 'POST',
@@ -68,6 +70,19 @@ const App = () => {
         />
         <Route path='/contact' element={<ContactView />} />
       </Routes>
+      <CookieConsent
+        location='bottom'
+        buttonText='Akceptuje'
+        cookieName='myAwesomeCookieName2'
+        style={{ background: '#45798a' }}
+        buttonStyle={{ color: '#4e503b', fontSize: '13px' }}
+        expires={150}
+      >
+        Ta strona używa ciasteczek Cookie, poznaj naszą politykę prywatności!{' '}
+        <span style={{ fontSize: '10px' }}>
+          Dane przekazujemy zaufanym partnerom !
+        </span>
+      </CookieConsent>
     </AppContainer>
   );
 };
