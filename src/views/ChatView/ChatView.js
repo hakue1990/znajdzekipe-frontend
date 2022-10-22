@@ -6,6 +6,8 @@ import ListOfGroups from './ListOfGroups';
 import Chat from './Chat';
 import LoginView from '../LoginView/LoginView';
 import czat from '../../assets/images/czat.jpg';
+import background from '../../assets/images/pattern.png';
+import Title from '../../components/Title/Title';
 
 const HomeView = ({ signIn }) => {
   const [user, loading, error] = useAuthState(auth);
@@ -19,8 +21,8 @@ const HomeView = ({ signIn }) => {
 
   if (user) {
     return (
-      <Container>
-        <h1>Tutaj możesz pisać z grupami, do których należysz</h1>
+      <LoginContainer>
+        <ChatTitle>Twoje grupy:</ChatTitle>
         <Wrapper>
           <GroupsPanel>
             <ListOfGroups />
@@ -29,7 +31,7 @@ const HomeView = ({ signIn }) => {
             <Chat />
           </ChatPanel>
         </Wrapper>
-      </Container>
+      </LoginContainer>
     );
   } else
     return (
@@ -47,6 +49,23 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+`;
+
+const LoginContainer = styled(Container)`
+  background: red;
+  background: url(${background});
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.8;
+    pointer-events: none;
+  }
 `;
 
 const GroupsPanel = styled.div``;
@@ -57,4 +76,10 @@ const Wrapper = styled.div`
   margin-top: 20px;
   display: flex;
   justify-content: space-around;
+`;
+const ChatTitle = styled(Title)`
+  z-index: 1;
+  text-align: center;
+  font-size: 30px;
+  width: 100vw;
 `;
