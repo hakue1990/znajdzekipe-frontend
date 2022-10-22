@@ -7,6 +7,7 @@ const Button = styled.button`
   border-style: none;
   color: black;
   text-transform: uppercase;
+  z-index: 1;
   cursor: pointer;
   flex-shrink: 0;
   font-family: 'Inter UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont,

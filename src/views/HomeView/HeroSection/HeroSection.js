@@ -3,8 +3,7 @@ import styled, { css } from 'styled-components';
 import HeroImg from '../../../assets/images/kariera.svg';
 import Title from '../../../components/Title/Title';
 import Button from '../../../components/Button/Button';
-import BG from '../../../assets/images/BG.png';
-import Slides from '../../../components/Slides/Slides';
+import BG from '../../../assets/images/pattern.png';
 
 const HeroSection = () => (
   <>
@@ -16,7 +15,7 @@ const HeroSection = () => (
         <Title size='100px' margin='0 120px' width='700px'>
           właśnie ty?
         </Title>
-        <Title size='100px' margin='0 120px' width='900px'>
+        <Title size='90px' margin='0 120px' width='900px'>
           Szukasz ekipy!
         </Title>
         <Button margin='40px 120px'>znajdz ekipę!</Button>
@@ -32,10 +31,21 @@ export default HeroSection;
 
 const Container = styled.div`
   min-height: 92vh;
-  background-color: black;
   color: white;
   display: flex;
   background-image: url(${BG});
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.8;
+    pointer-events: none;
+  }
   @media (max-width: 768px) {
     flex-direction: column;
     background-color: #101935;
@@ -59,6 +69,7 @@ const Row = styled.div`
     position: relative;
     top: 80px;
     width: 800px;
+    z-index: 1;
   }
 
   @media (max-width: 768px) {

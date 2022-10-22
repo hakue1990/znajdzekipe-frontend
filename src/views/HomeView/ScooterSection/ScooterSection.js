@@ -9,7 +9,6 @@ import gamesIco from '../../../assets/images/gamesIco.png';
 
 import Title from '../../../components/Title/Title';
 import Tab from './Tab/Tab';
-import Slides from '../../../components/Slides/Slides';
 
 const ScooterSection = () => (
   <>
@@ -28,7 +27,6 @@ const ScooterSection = () => (
         <img src={ScooterImg} alt='Scooter' />
       </Row>
     </Container>
-    <Slides />
   </>
 );
 

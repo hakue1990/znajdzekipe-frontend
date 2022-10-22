@@ -26,7 +26,12 @@ const ChatPanel = () => {
 
 export default ChatPanel;
 
-const Container = styled.div``;
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
 
 const ChatWrapper = styled.div`
   border: 1px solid black;
@@ -39,4 +44,9 @@ const ChatWrapper = styled.div`
   border: none;
   z-index: 1;
   width: 400px;
+  display: flex;
+  @media (max-width: 768px) {
+    width: 80%;
+    justify-content: center;
+  }
 `;

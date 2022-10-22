@@ -22,7 +22,7 @@ const HomeView = ({ signIn }) => {
   if (user) {
     return (
       <LoginContainer>
-        <ChatTitle>Twoje grupy:</ChatTitle>
+        <ChatTitle>grupy, do których należysz:</ChatTitle>
         <Wrapper>
           <GroupsPanel>
             <ListOfGroups />
@@ -50,10 +50,10 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
+  padding: 20px;
 `;
 
 const LoginContainer = styled(Container)`
-  background: red;
   background: url(${background});
   &::after {
     content: '';
@@ -66,6 +66,9 @@ const LoginContainer = styled(Container)`
     opacity: 0.8;
     pointer-events: none;
   }
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const GroupsPanel = styled.div``;
@@ -76,6 +79,9 @@ const Wrapper = styled.div`
   margin-top: 20px;
   display: flex;
   justify-content: space-around;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 const ChatTitle = styled(Title)`
   z-index: 1;

@@ -8,10 +8,12 @@ import { Link } from 'react-router-dom';
 const Footer = () => (
   <Container>
     <UpperRow>
-      <Title>Znajdź ekipę do!</Title>
+      <Title>Szukam ekipy do!</Title>
       <Paragraph>
         Innowacyjna platforma do nawiązywania znajomości, spędzania czasu
-        wspólnie rozwijając razem wspólne hobby.
+        wspólnie rozwijając razem wspólne hobby. Lorem ipsum dolor sit amet
+        consectetur adipisicing elit. Ut voluptatum ipsum, facilis omnis totam
+        quibusdam excepturi amet quas nulla asperiores!
       </Paragraph>
       <div>
         <LinkBtn to='/search'>Szukaj</LinkBtn>

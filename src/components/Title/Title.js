@@ -6,6 +6,7 @@ const Title = styled.h1`
   font-size: ${({ size }) => size || '22px'};
   color: ${({ color }) => color || 'white'};
   width: ${({ width }) => width || '600px'};
+  z-index: 1;
   @media (max-width: 768px) {
     font-size: 32px;
     width: 300px;

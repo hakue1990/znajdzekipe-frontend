@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import { db } from "../../firebase";
-import { collection, onSnapshot } from "firebase/firestore";
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import { db } from '../../firebase';
+import { collection, onSnapshot } from 'firebase/firestore';
 
 const MessagesScreen = ({ chatID }) => {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
     const unsub = onSnapshot(
-      collection(db, "groups", chatID, "messages"),
+      collection(db, 'groups', chatID, 'messages'),
       (messages) => {
         setMessages(messages.docs);
       }
