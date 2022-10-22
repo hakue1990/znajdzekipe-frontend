@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import LogoImg from '../../assets/images/logo.png';
+import logo from '../../assets/images/logo1.png';
 import { NavLink } from 'react-router-dom';
 import Button from '../Button/Button';
 import { signInWithPopup, signOut } from 'firebase/auth';

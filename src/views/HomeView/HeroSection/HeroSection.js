@@ -15,7 +15,7 @@ const HeroSection = () => (
         <Title size='100px' margin='0 120px' width='700px'>
           właśnie ty?
         </Title>
-        <Title size='90px' margin='0 120px' width='900px'>
+        <Title size='70px' margin='0 120px' width='900px'>
           Szukasz ekipy!
         </Title>
         <Button margin='40px 120px'>znajdz ekipę!</Button>

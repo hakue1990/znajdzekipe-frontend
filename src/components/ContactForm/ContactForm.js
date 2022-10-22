@@ -85,7 +85,7 @@ const ContactForm = () => {
 export default ContactForm;
 
 const Form = styled.form`
-  width: 500px;
+  width: 420px;
   height: 540px;
   background-color: #fff;
   margin-top: 30px;
@@ -94,6 +94,7 @@ const Form = styled.form`
   padding-top: 50px;
   position: relative;
   align-items: center;
+  border-radius: 15px;
 `;
 
 const InputContainer = styled.div`
