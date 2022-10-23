@@ -1,11 +1,11 @@
-import React, { useRef } from "react";
-import emailjs from "@emailjs/browser";
-import styled from "styled-components";
-import Button from "../Button/Button";
-import { useState } from "react";
-import BG from './../../assets/images/bg1.webp'
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+import styled from 'styled-components';
+import Button from '../Button/Button';
+import { useState } from 'react';
+import BG from './../../assets/images/pytania-odpowiedzi.svg';
 
-import MessageSentPopUp from "./MessageSentPopUp/MessageSentPopUp";
+import MessageSentPopUp from './MessageSentPopUp/MessageSentPopUp';
 
 const ContactForm = () => {
   const [isOpen, togglePopUp] = useState(false);
@@ -21,10 +21,10 @@ const ContactForm = () => {
 
     emailjs
       .sendForm(
-        "service_38ye0dj",
-        "template_0qinh5x",
+        'service_38ye0dj',
+        'template_0qinh5x',
         form.current,
-        "JYFZJAGUVzxfHD-Im"
+        'JYFZJAGUVzxfHD-Im'
       )
       .then(
         (result) => {
@@ -44,21 +44,21 @@ const ContactForm = () => {
       <Container>
         <Form ref={form} onSubmit={sendEmail}>
           <InputContainer>
-            <Input type="text" name="user_name" autoComplete="off" required />
+            <Input type='text' name='user_name' autoComplete='off' required />
             <Label>
               <Content>imie:</Content>
             </Label>
             <Line />
           </InputContainer>
           <InputContainer>
-            <Input type="text" name="user_title" autoComplete="off" required />
+            <Input type='text' name='user_title' autoComplete='off' required />
             <Label>
               <Content>tytuł:</Content>
             </Label>
             <Line />
           </InputContainer>
           <InputContainer>
-            <Input type="email" name="user_email" autoComplete="on" required />
+            <Input type='email' name='user_email' autoComplete='on' required />
             <Label>
               <Content>email</Content>
             </Label>
@@ -66,13 +66,13 @@ const ContactForm = () => {
           </InputContainer>
           <TextWrapper>
             <Input
-              type="text"
-              name="message"
-              id="message"
+              type='text'
+              name='message'
+              id='message'
               required
-              autoComplete="off"
+              autoComplete='off'
             />
-            <Label htmlFor="message">
+            <Label htmlFor='message'>
               <TextAreaContent>wiadomość:</TextAreaContent>
             </Label>
             <Line />
@@ -92,9 +92,10 @@ const Container = styled.div`
   position: relative;
   margin: 20px;
   display: flex;
+  border: 4px solid black;
   @media (max-width: 768px) {
-  width: 100vw;
-  flex-direction: column;
+    width: 100vw;
+    flex-direction: column;
   }
 `;
 
@@ -103,22 +104,24 @@ const Form = styled.form`
   background-color: #fff;
   display: flex;
   flex-direction: column;
-  padding: 20px ;
+  padding: 20px;
   align-items: center;
   left: 0;
   top: 0;
+
   @media (max-width: 768px) {
-  width: 100vw;
+    width: 100vw;
   }
 `;
 
 const ImageDiv = styled.div`
-background: url(${BG});
-background-size: cover;
-background-repeat: no-repeat;
-display: flex;
-width: 55%;
-height: 100%;
+  background: url(${BG});
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  width: 55%;
+  height: 100%;
+  background-color: white;
 `;
 
 const InputContainer = styled.div`
