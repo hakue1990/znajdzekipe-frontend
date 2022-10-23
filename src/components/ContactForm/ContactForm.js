@@ -92,7 +92,7 @@ const Container = styled.div`
   position: relative;
   margin: 20px;
   display: flex;
-  border: 4px solid black;
+  border: 1px solid black;
   @media (max-width: 768px) {
     width: 100vw;
     flex-direction: column;

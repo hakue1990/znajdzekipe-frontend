@@ -4,9 +4,11 @@ import Logo from '../../assets/images/logo.png';
 
 import { BsFacebook, BsGithub, BsLinkedin } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+import ScrollToTop from 'react-scroll-to-top';
 
 const Footer = () => (
   <Container>
+    <ScrollToTop smooth />
     <UpperRow>
       <Title>Szukam ekipy do!</Title>
       <Paragraph>
