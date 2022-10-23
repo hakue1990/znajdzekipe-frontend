@@ -1,30 +1,33 @@
 import React from 'react';
 
 import styled, { css } from 'styled-components';
-import ContactImg from '../../assets/images/ContactImg.webp';
 
 import ContactForm from '../../components/ContactForm/ContactForm';
 import BG from '../../assets/images/pattern.png';
 
-import LoginView from '../LoginView/LoginView';
 
 const ContactSection = () => (
   <>
     <Container>
       <Row column>
-        <h1>
+        <Title>
           napisz do <span style={{ color: '#f6ae2d' }}>nas</span>!
-        </h1>
+        </Title>
         <ContactForm />
       </Row>
-      <Row>
-        <img src={ContactImg} alt='Contact' />
-      </Row>
+      
     </Container>
   </>
 );
 
 export default ContactSection;
+
+
+const Title = styled.h1`
+  @media (max-width: 768px) {
+  color: white !important;
+  }
+`;
 
 const Container = styled.div`
   min-height: 92vh;
@@ -57,7 +60,7 @@ const Container = styled.div`
 `;
 
 const Row = styled.div`
-  width: 50%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,10 +1,11 @@
-import React, { useRef } from 'react';
-import emailjs from '@emailjs/browser';
-import styled from 'styled-components';
-import Button from '../Button/Button';
-import { useState } from 'react';
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import styled from "styled-components";
+import Button from "../Button/Button";
+import { useState } from "react";
+import BG from './../../assets/images/bg1.webp'
 
-import MessageSentPopUp from './MessageSentPopUp/MessageSentPopUp';
+import MessageSentPopUp from "./MessageSentPopUp/MessageSentPopUp";
 
 const ContactForm = () => {
   const [isOpen, togglePopUp] = useState(false);
@@ -20,10 +21,10 @@ const ContactForm = () => {
 
     emailjs
       .sendForm(
-        'service_38ye0dj',
-        'template_0qinh5x',
+        "service_38ye0dj",
+        "template_0qinh5x",
         form.current,
-        'JYFZJAGUVzxfHD-Im'
+        "JYFZJAGUVzxfHD-Im"
       )
       .then(
         (result) => {
@@ -40,67 +41,89 @@ const ContactForm = () => {
   return (
     <>
       {isOpen && <MessageSentPopUp toggle={toggle} />}
+      <Container>
+        <Form ref={form} onSubmit={sendEmail}>
+          <InputContainer>
+            <Input type="text" name="user_name" autoComplete="off" required />
+            <Label>
+              <Content>imie:</Content>
+            </Label>
+            <Line />
+          </InputContainer>
+          <InputContainer>
+            <Input type="text" name="user_title" autoComplete="off" required />
+            <Label>
+              <Content>tytuł:</Content>
+            </Label>
+            <Line />
+          </InputContainer>
+          <InputContainer>
+            <Input type="email" name="user_email" autoComplete="on" required />
+            <Label>
+              <Content>email</Content>
+            </Label>
+            <Line />
+          </InputContainer>
+          <TextWrapper>
+            <Input
+              type="text"
+              name="message"
+              id="message"
+              required
+              autoComplete="off"
+            />
+            <Label htmlFor="message">
+              <TextAreaContent>wiadomość:</TextAreaContent>
+            </Label>
+            <Line />
+          </TextWrapper>
 
-      <Form ref={form} onSubmit={sendEmail}>
-        <InputContainer>
-          <Input type='text' name='user_name' autoComplete='off' required />
-          <Label>
-            <Content>imie:</Content>
-          </Label>
-          <Line />
-        </InputContainer>
-        <InputContainer>
-          <Input type='text' name='user_title' autoComplete='off' required />
-          <Label>
-            <Content>tytuł:</Content>
-          </Label>
-          <Line />
-        </InputContainer>
-        <InputContainer>
-          <Input type='email' name='user_email' autoComplete='on' required />
-          <Label>
-            <Content>email</Content>
-          </Label>
-          <Line />
-        </InputContainer>
-        <TextWrapper>
-          <Input
-            type='text'
-            name='message'
-            id='message'
-            required
-            autoComplete='off'
-          />
-          <Label htmlFor='message'>
-            <TextAreaContent>wiadomość:</TextAreaContent>
-          </Label>
-          <Line />
-        </TextWrapper>
-
-        <Button>Wyślij </Button>
-      </Form>
+          <Button>Wyślij </Button>
+        </Form>
+        <ImageDiv></ImageDiv>
+      </Container>
     </>
   );
 };
 export default ContactForm;
 
+const Container = styled.div`
+  width: 940px;
+  position: relative;
+  margin: 20px;
+  display: flex;
+  @media (max-width: 768px) {
+  width: 100vw;
+  flex-direction: column;
+  }
+`;
+
 const Form = styled.form`
-  width: 420px;
-  height: 540px;
+  width: 45%;
   background-color: #fff;
-  margin-top: 30px;
   display: flex;
   flex-direction: column;
-  padding-top: 50px;
-  position: relative;
+  padding: 20px ;
   align-items: center;
-  border-radius: 15px;
+  left: 0;
+  top: 0;
+  @media (max-width: 768px) {
+  width: 100vw;
+  }
+`;
+
+const ImageDiv = styled.div`
+background: url(${BG});
+background-size: cover;
+background-repeat: no-repeat;
+display: flex;
+width: 55%;
+height: 100%;
 `;
 
 const InputContainer = styled.div`
   width: 60%;
   height: 50px;
-  background-color: blue;
   position: relative;
   overflow: hidden;
   margin: 7px;
