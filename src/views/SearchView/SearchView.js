@@ -12,22 +12,10 @@ import Title from "../../components/Title/Title";
 import BG from "../../assets/images/pattern.png";
 import ListOfGroups from "./ListOfGroups";
 
-const addGroup = async (user) => {
-  try {
-    const docRef = await addDoc(collection(db, "groups"), {
-      name: "Testowa",
-      kategoria: "Lorem",
-      members: [user.email],
-      owner: [user.email],
-    });
-    console.log("Document written with ID: ", docRef.id);
-  } catch (e) {
-    console.error("Error adding document: ", e);
-  }
-};
-
-const ProjectView = ({ signIn }) => {
+const SearchView = ({ signIn }) => {
   const [user, loading, error] = useAuthState(auth);
+  const [addGroupView, setAddGroupView] = useState(false);
+  const [groupName, setGroupName] = useState("");
   const [searchText, setSearchText] = useState("");
   const [latitude, setLatitude] = useState();
   const [longitude, setLongitude] = useState();
@@ -36,6 +24,22 @@ const ProjectView = ({ signIn }) => {
   const [minTime, setMinTime] = useState();
   const [maxTime, setMaxTime] = useState();
   const [keyWords, setKeyWords] = useState();
+
+  const addGroup = async () => {
+    try {
+      const docRef = await addDoc(collection(db, "groups"), {
+        name: `${groupName}`,
+        kategoria: "Lorem",
+        members: [user.email],
+        owner: [user.email],
+      });
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+
+    setAddGroupView(false);
+  };
 
   useEffect(() => {
     const timeOutId = setTimeout(() => {
@@ -57,7 +61,18 @@ const ProjectView = ({ signIn }) => {
     return (
       <Container>
         <Title>Tutaj możesz znaleźć ekipę</Title>
-        <AddGroupBtn onClick={() => addGroup(user)}>Dodaj grupe</AddGroupBtn>
+        <AddGroupBtn onClick={() => setAddGroupView(true)}>
+          Dodaj grupe
+        </AddGroupBtn>
+        {addGroupView && (
+          <AddGroupView>
+            <button onClick={() => setAddGroupView(false)}>Wyjdź</button>
+            <p>Testowe tworzenie grupy, żeby nie było samych testów</p>
+            <Label>Nazwa: </Label>
+            <Input type="text" onChange={(e) => setGroupName(e.target.value)} />
+            <Button onClick={() => addGroup()}>Stwórz grupę</Button>
+          </AddGroupView>
+        )}
         <SearchWrapper>
           <Button>Szukaj grupę</Button>
           <DateTimeWrapper>
@@ -91,7 +106,7 @@ const ProjectView = ({ signIn }) => {
   } else return <LoginView img={wyszukiwanie} signIn={signIn} />;
 };
 
-export default ProjectView;
+export default SearchView;
 
 const Container = styled.div`
   min-height: 92vh;
@@ -131,10 +146,25 @@ const Label = styled.label`
 `;
 const Input = styled.input`
   z-index: 1;
+  padding: 5px;
 `;
 const AddGroupBtn = styled(Button)`
   z-index: 1;
   position: relative;
+`;
+
+const AddGroupView = styled.div`
+  position: fixed;
+  height: 300px;
+  width: 300px;
+  padding: 20px;
+  background-color: gray;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 const GroupsContainer = styled.div`
@@ -143,7 +173,7 @@ const GroupsContainer = styled.div`
   flex-direction: column;
   position: block;
   background-color: #ffffff;
-  z-index: 999;
+  z-index: 99;
   margin-top: 20px;
   left: 50%;
   transform: translateX(-50%);
