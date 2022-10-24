@@ -1,13 +1,13 @@
-import React from 'react';
-import styled from 'styled-components';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from '../../firebase';
-import ListOfGroups from './ListOfGroups';
-import Chat from './Chat';
-import LoginView from '../LoginView/LoginView';
-import czat from '../../assets/images/czat.jpg';
-import background from '../../assets/images/pattern.png';
-import Title from '../../components/Title/Title';
+import React from "react";
+import styled from "styled-components";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../firebase";
+import ListOfGroups from "./ListOfGroups";
+import Chat from "./Chat";
+import LoginView from "../LoginView/LoginView";
+import czat from "../../assets/images/czat.jpg";
+import background from "../../assets/images/pattern.png";
+import Title from "../../components/Title/Title";
 
 const HomeView = ({ signIn }) => {
   const [user, loading, error] = useAuthState(auth);
@@ -25,7 +25,7 @@ const HomeView = ({ signIn }) => {
         <ChatTitle>grupy, do których należysz:</ChatTitle>
         <Wrapper>
           <GroupsPanel>
-            <ListOfGroups />
+            <ListOfGroups currentUser={user} />
           </GroupsPanel>
           <ChatPanel>
             <Chat />
@@ -56,7 +56,7 @@ const Container = styled.div`
 const LoginContainer = styled(Container)`
   background: url(${background});
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     top: 0;

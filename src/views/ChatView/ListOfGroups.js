@@ -1,14 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import { db } from '../../firebase';
-import { collection, onSnapshot } from 'firebase/firestore';
-import Group from './Group';
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import { db } from "../../firebase";
+import { collection, onSnapshot, query, where } from "firebase/firestore";
+import Group from "./Group";
 
-const ListOfGroups = () => {
+const ListOfGroups = ({ currentUser }) => {
   const [groups, setGroups] = useState([]);
 
+  const groupsRef = collection(db, "groups");
+  const queryGroups = query(
+    groupsRef,
+    where("members", "array-contains", currentUser.email)
+  );
+
   useEffect(() => {
-    const unsub = onSnapshot(collection(db, 'groups'), (groups) => {
+    console.log(currentUser.email);
+    const unsub = onSnapshot(queryGroups, (groups) => {
       setGroups(groups.docs);
     });
     //remember to unsubscribe from your realtime listener on unmount or you will create a memory leak
