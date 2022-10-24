@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import LoginViewImg from '../../assets/images/wyszukiwanie.svg';
+import BG from '../../assets/images/pattern.png';
 
 import Button from '../../components/Button/Button';
 import Title from '../../components/Title/Title';
@@ -13,6 +13,22 @@ const LoginView = ({ img, signIn }) => {
     display: flex;
     justify-content: center;
     justify-content: flex-start;
+    background-image: url(${BG});
+    position: relative;
+    left: 0;
+    top: 0;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      opacity: 0.8;
+      pointer-events: none;
+      z-index: -1;
+    }
   `;
 
   const Image = styled.img`
@@ -57,6 +73,7 @@ const LoginView = ({ img, signIn }) => {
   `;
 
   const LoginText = styled(Title)`
+    color: white;
     @media (max-width: 768px) {
       font-size: 40px;
       letter-spacing: 5px;

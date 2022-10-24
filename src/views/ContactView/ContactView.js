@@ -5,7 +5,6 @@ import styled, { css } from 'styled-components';
 import ContactForm from '../../components/ContactForm/ContactForm';
 import BG from '../../assets/images/pattern.png';
 
-
 const ContactSection = () => (
   <>
     <Container>
@@ -15,17 +14,15 @@ const ContactSection = () => (
         </Title>
         <ContactForm />
       </Row>
-      
     </Container>
   </>
 );
 
 export default ContactSection;
 
-
 const Title = styled.h1`
   @media (max-width: 768px) {
-  color: white !important;
+    color: white !important;
   }
 `;
 
@@ -35,6 +32,8 @@ const Container = styled.div`
   display: flex;
   position: relative;
   background-image: url(${BG});
+  margin: 0;
+  padding: 0;
   &::after {
     content: '';
     position: absolute;
