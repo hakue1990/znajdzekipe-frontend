@@ -10,6 +10,7 @@ import wyszukiwanie from "../../assets/images/wyszukiwanie.svg";
 import getKeywords from "./getKeywords";
 import Title from "../../components/Title/Title";
 import BG from "../../assets/images/pattern.png";
+import ListOfGroups from "./ListOfGroups";
 
 const addGroup = async (user) => {
   try {
@@ -81,6 +82,10 @@ const ProjectView = ({ signIn }) => {
             handleLongitude={setLongitude}
           />
         </SearchWrapper>
+        <GroupsContainer>
+          <h2>Testowa lista wszystkich grup</h2>
+          <ListOfGroups currentUser={user} />
+        </GroupsContainer>
       </Container>
     );
   } else return <LoginView img={wyszukiwanie} signIn={signIn} />;
@@ -130,4 +135,18 @@ const Input = styled.input`
 const AddGroupBtn = styled(Button)`
   z-index: 1;
   position: relative;
+`;
+
+const GroupsContainer = styled.div`
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  position: block;
+  background-color: #ffffff;
+  z-index: 999;
+  margin-top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 500px;
 `;
