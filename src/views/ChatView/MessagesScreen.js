@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { db } from "../../firebase";
 import { collection, onSnapshot } from "firebase/firestore";
+import Message from "./Message";
 
 const MessagesScreen = ({ chatID }) => {
   const [messages, setMessages] = useState([]);
@@ -20,7 +21,7 @@ const MessagesScreen = ({ chatID }) => {
   return (
     <Container>
       {messages.map((message) => (
-        <p key={message.id}>{message.data().text}</p>
+        <Message key={message.id} data={message.data()} />
       ))}
     </Container>
   );
@@ -28,4 +29,23 @@ const MessagesScreen = ({ chatID }) => {
 
 export default MessagesScreen;
 
-const Container = styled.div``;
+const Container = styled.div`
+  overflow-y: scroll;
+  width: 100%;
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 100px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 100px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+`;

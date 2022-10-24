@@ -1,22 +1,24 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
-import styled from 'styled-components';
-import ChatTextInput from './ChatTextInput';
-import MessagesScreen from './MessagesScreen';
+import React from "react";
+import { useLocation } from "react-router-dom";
+import styled from "styled-components";
+import ChatTextInput from "./ChatTextInput";
+import MessagesScreen from "./MessagesScreen";
 
 const ChatPanel = () => {
   const location = useLocation();
 
-  let chatID = location.state;
+  let chatData = location.state;
 
   return (
     <Container>
-      <p>current chatID: {chatID}</p>
       <ChatWrapper>
-        {chatID && (
+        <ChatHeader>
+          <p>{chatData.name}</p>
+        </ChatHeader>
+        {chatData.chatID && (
           <>
-            <MessagesScreen chatID={chatID} />
-            <ChatTextInput chatID={chatID} />
+            <MessagesScreen chatID={chatData.chatID} />
+            <ChatTextInput chatID={chatData.chatID} />
           </>
         )}
       </ChatWrapper>
@@ -49,4 +51,17 @@ const ChatWrapper = styled.div`
     width: 80%;
     justify-content: center;
   }
+  overflow: hidden;
+`;
+
+const ChatHeader = styled.div`
+  border-bottom: 1px solid black;
+  z-index: 2;
+  height: auto;
+  width: 400px;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 0px;
+  padding: 10px;
 `;
