@@ -14,7 +14,6 @@ const ListOfGroups = ({ currentUser }) => {
   );
 
   useEffect(() => {
-    console.log(currentUser.email);
     const unsub = onSnapshot(queryGroups, (groups) => {
       setGroups(groups.docs);
     });
