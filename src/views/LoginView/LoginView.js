@@ -81,7 +81,6 @@ const LoginView = ({ img, signIn }) => {
       position: relative;
       width: 100vw;
       left: -60px;
-      top: -15npm run %;
     }
   `;
   return (
