@@ -33,12 +33,7 @@ const HomeView = ({ signIn }) => {
         </Wrapper>
       </LoginContainer>
     );
-  } else
-    return (
-      <Container>
-        <LoginView img={czat} signIn={signIn} />
-      </Container>
-    );
+  } else return <LoginView img={czat} signIn={signIn} />;
 };
 
 export default HomeView;
