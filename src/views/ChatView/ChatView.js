@@ -5,7 +5,7 @@ import { auth } from "../../firebase";
 import ListOfGroups from "./ListOfGroups";
 import Chat from "./Chat";
 import LoginView from "../LoginView/LoginView";
-import czat from "../../assets/images/czat.jpg";
+import czat from "../../assets/images/czat.png";
 import background from "../../assets/images/pattern.png";
 import Title from "../../components/Title/Title";
 
