@@ -68,9 +68,15 @@ const SearchView = ({ signIn }) => {
           <AddGroupView>
             <button onClick={() => setAddGroupView(false)}>Wyjdź</button>
             <p>Testowe tworzenie grupy, żeby nie było samych testów</p>
-            <Label>Nazwa: </Label>
-            <Input type="text" onChange={(e) => setGroupName(e.target.value)} />
-            <Button onClick={() => addGroup()}>Stwórz grupę</Button>
+            <form onSubmit={() => addGroup()}>
+              <Label>Nazwa: </Label>
+              <Input
+                type="text"
+                required="required"
+                onChange={(e) => setGroupName(e.target.value)}
+              />
+              <Button type="submit">Stwórz grupę</Button>
+            </form>
           </AddGroupView>
         )}
         <SearchWrapper>
