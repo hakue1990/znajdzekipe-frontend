@@ -12,10 +12,8 @@ const Footer = () => (
     <UpperRow>
       <Title>Szukam ekipy do!</Title>
       <Paragraph>
-        Innowacyjna platforma do nawiązywania znajomości, spędzania czasu
-        wspólnie rozwijając razem wspólne hobby. Lorem ipsum dolor sit amet
-        consectetur adipisicing elit. Ut voluptatum ipsum, facilis omnis totam
-        quibusdam excepturi amet quas nulla asperiores!
+        made with ♥ by Mateusz Kokot Michał Kolanowski Wojciech Korcz Adam
+        Hałdaś
       </Paragraph>
       <div>
         <LinkBtn to='/search'>Szukaj</LinkBtn>

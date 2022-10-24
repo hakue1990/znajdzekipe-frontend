@@ -2,10 +2,8 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import HeroImg from '../../../assets/images/kariera.svg';
 import Title from '../../../components/Title/Title';
-import Button from '../../../components/Button/Button';
 import BG from '../../../assets/images/pattern.png';
-
-import CookieConsent from 'react-cookie-consent';
+import { Link } from 'react-router-dom';
 
 const HeroSection = () => (
   <>
@@ -20,24 +18,11 @@ const HeroSection = () => (
         <Title size='70px' margin='0 120px' width='900px'>
           Szukasz ekipy!
         </Title>
-        <Button margin='40px 120px'>znajdz ekipę!</Button>
+        <Button to='/search'>znajdz ekipę!</Button>
       </Row>
       <Row>
         <img src={HeroImg} alt='Hero' />
       </Row>
-      <CookieConsent
-        location='bottom'
-        buttonText='Akceptuje'
-        cookieName='myAwesomeCookieName2'
-        style={{ background: '#45798a' }}
-        buttonStyle={{ color: '#4e503b', fontSize: '13px' }}
-        expires={150}
-      >
-        Ta strona używa ciasteczek Cookie, poznaj naszą politykę prywatności!{' '}
-        <span style={{ fontSize: '10px' }}>
-          Dane przekazujemy zaufanym partnerom !
-        </span>
-      </CookieConsent>
     </Container>
   </>
 );
@@ -72,6 +57,46 @@ const Container = styled.div`
       background: white;
       color: black;
     `}
+`;
+
+const Button = styled(Link)`
+  position: relative;
+  left: 500px;
+  top: 40px;
+  margin: ${({ margin }) => margin};
+  background-color: #f6ae2d;
+  border-radius: 18px;
+  border-style: none;
+  color: black;
+  text-transform: uppercase;
+  z-index: 1;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-family: 'Inter UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+    sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 15px 20px;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+  transition: all 0.5s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
+  &:hover {
+    box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
+    transition-duration: 0.1s;
+    background-color: #87d68d;
+    z-index: 1;
+  }
+  @media (max-width: 768px) {
+    top: 50%;
+    left: 50px;
+    display: block;
+    margin: 40px;
+  }
 `;
 
 const Row = styled.div`
