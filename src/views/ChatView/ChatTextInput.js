@@ -4,24 +4,25 @@ import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { db, auth } from "../../firebase";
 
-const addMessage = async (chatID, user, text) => {
-  try {
-    const messageRef = await addDoc(
-      collection(db, "groups", chatID, "messages"),
-      {
-        text: text,
-        creator: user,
-        timestamp: serverTimestamp(),
-      }
-    );
-    console.log("Message written with ID: ", messageRef.id);
-  } catch (e) {
-    console.log("Error adding Message: ", e);
-  }
-};
-
 const ChatTextInput = ({ chatID }) => {
   const [user] = useAuthState(auth);
+
+  const addMessage = async (text) => {
+    try {
+      const messageRef = await addDoc(
+        collection(db, "groups", chatID, "messages"),
+        {
+          text: text,
+          creator: user.email,
+          creatorName: user.displayName,
+          timestamp: serverTimestamp(),
+        }
+      );
+      console.log("Message written with ID: ", messageRef.id);
+    } catch (e) {
+      console.log("Error adding Message: ", e);
+    }
+  };
   return (
     <Container>
       <Input
@@ -30,7 +31,7 @@ const ChatTextInput = ({ chatID }) => {
           if (ev.key === "Enter") {
             ev.preventDefault();
             if (ev.target.value !== "") {
-              addMessage(chatID, user.email, ev.target.value);
+              addMessage(ev.target.value);
               ev.target.value = "";
             }
           }

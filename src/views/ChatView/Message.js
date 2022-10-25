@@ -16,6 +16,9 @@ const Message = ({ data }) => {
   return (
     <ContainerReciever>
       <TypeOfMessage>
+        {!whoIs && (
+          <RecieverDisplayName>{data?.creatorName}</RecieverDisplayName>
+        )}
         {data.text}
         <TypeOfTimestamp>{time}</TypeOfTimestamp>
       </TypeOfMessage>
@@ -27,22 +30,12 @@ export default Message;
 
 const ContainerReciever = styled.div``;
 
-const ContainerSender = styled.div``;
-
-const Text = styled.p``;
-
-const TextDescription = styled.div`
-  display: flex;
-`;
-
 const UserImage = styled.img`
   background-color: black;
   width: 13px;
   height: 13px;
   border-radius: 10px;
 `;
-
-const DescriptionP = styled.p``;
 
 const MessageElement = styled.p`
   width: fit-content;
@@ -63,6 +56,16 @@ const Sender = styled(MessageElement)`
 const Reciever = styled(MessageElement)`
   background-color: whitesmoke;
   text-align: left;
+`;
+
+const RecieverDisplayName = styled.span`
+  color: grey;
+  padding: 5px;
+  font-size: 9px;
+  position: absolute;
+  top: 0;
+  text-align: left;
+  left: 0;
 `;
 
 const Timestamp = styled.span`
