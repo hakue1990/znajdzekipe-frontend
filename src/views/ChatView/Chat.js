@@ -13,9 +13,9 @@ const ChatPanel = () => {
     <Container>
       <ChatWrapper>
         <ChatHeader>
-          <p>{chatData.name}</p>
+          {chatData ? <p>{chatData.name}</p> : <p>Wybierz Grupę!</p>}
         </ChatHeader>
-        {chatData.chatID && (
+        {chatData && (
           <>
             <MessagesScreen chatID={chatData.chatID} />
             <ChatTextInput chatID={chatData.chatID} />
