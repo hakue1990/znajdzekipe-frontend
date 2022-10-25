@@ -1,21 +1,22 @@
-import React from 'react';
-import styled from 'styled-components';
-import { collection, addDoc } from 'firebase/firestore';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { db, auth } from '../../firebase';
+import React from "react";
+import styled from "styled-components";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { db, auth } from "../../firebase";
 
 const addMessage = async (chatID, user, text) => {
   try {
     const messageRef = await addDoc(
-      collection(db, 'groups', chatID, 'messages'),
+      collection(db, "groups", chatID, "messages"),
       {
         text: text,
         creator: user,
+        timestamp: serverTimestamp(),
       }
     );
-    console.log('Message written with ID: ', messageRef.id);
+    console.log("Message written with ID: ", messageRef.id);
   } catch (e) {
-    console.log('Error adding Message: ', e);
+    console.log("Error adding Message: ", e);
   }
 };
 
@@ -24,13 +25,13 @@ const ChatTextInput = ({ chatID }) => {
   return (
     <Container>
       <Input
-        placeholder='wiadomość..'
+        placeholder="wiadomość.."
         onKeyPress={(ev) => {
-          if (ev.key === 'Enter') {
+          if (ev.key === "Enter") {
             ev.preventDefault();
-            if (ev.target.value !== '') {
+            if (ev.target.value !== "") {
               addMessage(chatID, user.email, ev.target.value);
-              ev.target.value = '';
+              ev.target.value = "";
             }
           }
         }}

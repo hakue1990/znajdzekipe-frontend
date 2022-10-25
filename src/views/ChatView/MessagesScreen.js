@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { db } from "../../firebase";
-import { collection, onSnapshot } from "firebase/firestore";
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import Message from "./Message";
 
 const MessagesScreen = ({ chatID }) => {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    const unsub = onSnapshot(
+    const q = query(
       collection(db, "groups", chatID, "messages"),
-      (messages) => {
-        setMessages(messages.docs);
-      }
+      orderBy("timestamp")
     );
+
+    const unsub = onSnapshot(q, (messages) => {
+      setMessages(messages.docs);
+    });
     //remember to unsubscribe from your realtime listener on unmount or you will create a memory leak
     return () => unsub();
   }, [chatID]);
