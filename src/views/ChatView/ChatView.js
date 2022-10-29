@@ -25,7 +25,7 @@ const HomeView = ({ signIn }) => {
         <ChatTitle>grupy, do których należysz:</ChatTitle>
         <Wrapper>
           <GroupsPanel>
-            <ListOfGroups currentUser={user} />
+            <ListOfGroups />
           </GroupsPanel>
           <ChatPanel>
             <Chat />
