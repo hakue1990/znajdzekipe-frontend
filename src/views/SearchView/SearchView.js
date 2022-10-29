@@ -25,7 +25,8 @@ const SearchView = ({ signIn }) => {
   const [maxTime, setMaxTime] = useState();
   const [keyWords, setKeyWords] = useState();
 
-  const addGroup = async () => {
+  const addGroup = async (event) => {
+    event.preventDefault();
     try {
       const docRef = await addDoc(collection(db, "groups"), {
         name: `${groupName}`,
@@ -68,7 +69,7 @@ const SearchView = ({ signIn }) => {
           <AddGroupView>
             <button onClick={() => setAddGroupView(false)}>Wyjdź</button>
             <p>Testowe tworzenie grupy, żeby nie było samych testów</p>
-            <form onSubmit={() => addGroup()}>
+            <form onSubmit={(e) => addGroup(e)}>
               <Label>Nazwa: </Label>
               <Input
                 type="text"
