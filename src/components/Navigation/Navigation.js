@@ -98,7 +98,7 @@ const MenuLink = styled(NavLink)`
     font-weight: bold;
   }
   img {
-    width: 190px;
+    width: 120px;
   }
 `;
 
