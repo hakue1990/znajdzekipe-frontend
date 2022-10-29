@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import { db } from "../../firebase";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
@@ -6,8 +6,19 @@ import Message from "./Message";
 
 const MessagesScreen = ({ chatID }) => {
   const [messages, setMessages] = useState([]);
+  const scrollMessagesRef = useRef(null);
+
+  const scrollToBottom = () => {
+    scrollMessagesRef.current.scrollIntoView({
+      behavior: "smooth",
+      block: "end",
+      inline: "nearest",
+    });
+  };
 
   useEffect(() => {
+    console.log("test");
+
     const q = query(
       collection(db, "groups", chatID, "messages"),
       orderBy("timestamp")
@@ -20,11 +31,16 @@ const MessagesScreen = ({ chatID }) => {
     return () => unsub();
   }, [chatID]);
 
+  useEffect(() => {
+    scrollToBottom();
+  });
+
   return (
     <Container>
       {messages.map((message) => (
         <Message key={message.id} data={message.data()} />
       ))}
+      <EndOfMessages ref={scrollMessagesRef} />
     </Container>
   );
 };
@@ -50,4 +66,8 @@ const Container = styled.div`
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
+  margin-top: 30px;
+  margin-bottom: 30px;
 `;
+
+const EndOfMessages = styled.div``;

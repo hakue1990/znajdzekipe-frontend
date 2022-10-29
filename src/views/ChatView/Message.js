@@ -9,7 +9,7 @@ const Message = ({ data }) => {
 
   const whoIs = user.email === data.creator;
 
-  const TypeOfMessage = whoIs ? Sender : Reciever;
+  const TypeOfMessage = whoIs ? SenderMessageElement : RecieverMessageElement;
   const TypeOfTimestamp = whoIs ? SenderTimestamp : RecieverTimestamp;
   const time = moment(data.timestamp?.toDate()).format("HH:mm");
 
@@ -30,58 +30,48 @@ export default Message;
 
 const ContainerReciever = styled.div``;
 
-const UserImage = styled.img`
-  background-color: black;
-  width: 13px;
-  height: 13px;
-  border-radius: 10px;
-`;
-
 const MessageElement = styled.p`
   width: fit-content;
-  padding: 15px;
   border-radius: 8px;
   margin: 10px;
   min-width: 60px;
-  max-width: 80%;
-  padding-bottom: 26px;
-  position: relative;
-  text-align: right;
+  max-width: 100%;
   overflow-wrap: break-word;
+  display: flex;
+  flex-direction: column;
 `;
-const Sender = styled(MessageElement)`
+
+const SenderMessageElement = styled(MessageElement)`
+  padding: 15px 15px 15px;
+  text-align: right;
   margin-left: auto;
   background-color: #dcf8c6;
 `;
-const Reciever = styled(MessageElement)`
+
+const RecieverMessageElement = styled(MessageElement)`
+  padding: 7px 15px 15px 15px;
+  text-align: right;
   background-color: whitesmoke;
   text-align: left;
 `;
 
 const RecieverDisplayName = styled.span`
   color: grey;
-  padding: 5px;
   font-size: 9px;
-  position: absolute;
-  top: 0;
   text-align: left;
-  left: 0;
+  margin-bottom: 3px;
 `;
 
 const Timestamp = styled.span`
   color: grey;
-  padding: 10px;
   font-size: 9px;
-  position: absolute;
-  bottom: 0;
+  margin-top: 7px;
 `;
 
 const SenderTimestamp = styled(Timestamp)`
   text-align: right;
-  right: 0;
 `;
 
 const RecieverTimestamp = styled(Timestamp)`
   text-align: left;
-  left: 0;
 `;

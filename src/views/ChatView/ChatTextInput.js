@@ -48,6 +48,9 @@ const Container = styled.div`
   bottom: 0;
   box-sizing: border-box;
   padding: 10px;
+  left: 0;
+  background-color: white;
+  width: 100%;
 `;
 
 const Input = styled.input`
@@ -56,4 +59,5 @@ const Input = styled.input`
   border-bottom: 3px solid black;
   outline: none;
   background: none;
+  width: 100%;
 `;
