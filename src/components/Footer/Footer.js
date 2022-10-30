@@ -20,7 +20,8 @@ const Footer = () => (
       </div>
     </UpperRow>
     <Row>
-      <img src={Logo} alt='logo' />
+      <Link to="/"><img src={Logo} alt='logo' /></Link>
+      
       <span>© 2022 Znajdź ekipę . All Rights Reserved. </span>
       <SocialsContainer>
         <SocialIco href='#'>
