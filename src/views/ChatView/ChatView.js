@@ -29,12 +29,8 @@ const HomeView = ({ signIn }) => {
         <Row>
           <ChatTitle>grupy, do których należysz:</ChatTitle>
           <Wrapper>
-            <GroupsPanel>
-              <ListOfGroups />
-            </GroupsPanel>
-            <ChatPanel>
-              <Chat />
-            </ChatPanel>
+            <ListOfGroups />
+            <Chat />
           </Wrapper>
         </Row>
       </LoginContainer>
@@ -89,9 +85,6 @@ const Row = styled.div`
     width: 800px;
   }
 `;
-const GroupsPanel = styled.div``;
-
-const ChatPanel = styled.div``;
 
 const Wrapper = styled.div`
   margin-top: 20px;

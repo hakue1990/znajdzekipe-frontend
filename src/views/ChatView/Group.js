@@ -1,12 +1,12 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 
 const Group = ({ id, name }) => {
   let navigate = useNavigate();
 
   const redirectTo = (id) => {
-    navigate("/chat", {
+    navigate('/chat', {
       replace: true,
       state: { chatID: id, name: name },
     });
@@ -14,7 +14,8 @@ const Group = ({ id, name }) => {
 
   return (
     <Container onClick={() => redirectTo(id)}>
-      grupa: {name}, <br /> id: {id}
+      {name} <br />
+      {/* id: {id} */}
     </Container>
   );
 };
@@ -32,10 +33,13 @@ const Container = styled.div`
   border-radius: 20px;
   margin: 10px;
   transition: all 0.3s ease;
-  width: 330px;
+  width: 230px;
   z-index: 1;
   color: white;
+  text-transform: uppercase;
   &:hover {
     background-color: #e6af2e;
+    color: black;
+    font-weight: bold;
   }
 `;

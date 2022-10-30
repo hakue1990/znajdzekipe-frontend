@@ -1,8 +1,8 @@
-import React from "react";
-import { useLocation } from "react-router-dom";
-import styled from "styled-components";
-import ChatTextInput from "./ChatTextInput";
-import MessagesScreen from "./MessagesScreen";
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+import styled from 'styled-components';
+import ChatTextInput from './ChatTextInput';
+import MessagesScreen from './MessagesScreen';
 
 const ChatPanel = () => {
   const location = useLocation();
@@ -44,7 +44,7 @@ const ChatWrapper = styled.div`
   padding: 15px;
   border: none;
   z-index: 1;
-  width: 400px;
+  width: 500px;
   display: flex;
   @media (max-width: 768px) {
     width: 80%;
@@ -57,7 +57,7 @@ const ChatHeader = styled.div`
   border-bottom: 1px solid black;
   z-index: 2;
   height: auto;
-  width: 400px;
+  width: 100%;
   background-color: #5603ad;
   position: absolute;
   top: 0;
