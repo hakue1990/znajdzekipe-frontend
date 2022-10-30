@@ -1,6 +1,6 @@
 import { getCookie } from "../../utils/getCookie";
 
-export const getKeywords = async (text) => {
+export const apiGetKeywords = async (text) => {
   const cookieValue = getCookie();
   const data = {
     inputString: `${text}`,
@@ -25,8 +25,27 @@ export const getKeywords = async (text) => {
   }
 };
 
-export const searchGroups = async () => {
+export const apiSearchGroups = async (
+  latitude,
+  longitude,
+  maxDistance,
+  minDate,
+  maxDate,
+  minTime,
+  maxTime,
+  keywords
+) => {
   const cookieValue = getCookie();
+  const data = {
+    latitude: latitude,
+    longitude: longitude,
+    maxDistance: maxDistance,
+    minDate: minDate,
+    maxDate: maxDate,
+    minTime: minTime,
+    maxTime: maxTime,
+    keywords: keywords,
+  };
 
   try {
     const apiResponse = await fetch(
@@ -39,16 +58,17 @@ export const searchGroups = async () => {
           Accept: "application/json",
           Authorization: `${cookieValue}`,
         },
+        body: JSON.stringify(data),
       }
     );
 
-    return await apiResponse.json();
+    return await apiResponse.text();
   } catch (e) {
     console.log(e);
   }
 };
 
-export const addGroup = async (
+export const apiAddGroup = async (
   groupID,
   name,
   latitude,
@@ -62,21 +82,22 @@ export const addGroup = async (
 ) => {
   const cookieValue = getCookie();
   const data = {
-    firebase_chat_id: "123456",
-    name: "TESTname",
+    firebase_chat_id: groupID,
+    name: name,
     description: "TESTdescription",
-    latitude: 52.40117371024606,
-    longitude: 16.91741090208518,
-    event_date: "1111-11-11",
-    event_time: "12:12",
-    max_members: 6,
-    members: [4],
-    owner: 4,
-    tags: ["Aalborg", "Aalto"],
+    latitude: latitude,
+    longitude: longitude,
+    event_date: event_date,
+    event_time: event_time,
+    max_members: max_members,
+    members: [members],
+    owner: owner,
+    tags: tags,
   };
+
   try {
     const apiResponse = await fetch(
-      "https://backend.szukamekipydo.pl/api/showResults",
+      "https://backend.szukamekipydo.pl/api/group",
       {
         method: "POST",
         mode: "cors",
