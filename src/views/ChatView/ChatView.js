@@ -1,14 +1,14 @@
-import React from "react";
-import styled from "styled-components";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../firebase";
-import ListOfGroups from "./ListOfGroups";
-import Chat from "./Chat";
-import LoginView from "../LoginView/LoginView";
-import czat from "../../assets/images/czat.png";
-import background from "../../assets/images/pattern.png";
-import Title from "../../components/Title/Title";
-import CzatImg from '../../assets/images/pytania-odpowiedzi.svg'
+import React from 'react';
+import styled from 'styled-components';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../../firebase';
+import ListOfGroups from './ListOfGroups';
+import Chat from './Chat';
+import LoginView from '../LoginView/LoginView';
+import czat from '../../assets/images/czat.png';
+import background from '../../assets/images/pattern.png';
+import Title from '../../components/Title/Title';
+import CzatImg from '../../assets/images/siedza.png';
 
 const HomeView = ({ signIn }) => {
   const [user, loading, error] = useAuthState(auth);
@@ -23,32 +23,20 @@ const HomeView = ({ signIn }) => {
   if (user) {
     return (
       <LoginContainer>
-
-<Row>
-
-<img src={CzatImg} alt="#" />
-
-
-</Row>
-<Row>
-  
-<ChatTitle>grupy, do których należysz:</ChatTitle>
-        <Wrapper>
-          <GroupsPanel>
-            <ListOfGroups />
-          </GroupsPanel>
-          <ChatPanel>
-            <Chat />
-          </ChatPanel>
-        </Wrapper>
-</Row>
-
-
-
-
-
-
-
+        <Row>
+          <img src={CzatImg} alt='#' />
+        </Row>
+        <Row>
+          <ChatTitle>grupy, do których należysz:</ChatTitle>
+          <Wrapper>
+            <GroupsPanel>
+              <ListOfGroups />
+            </GroupsPanel>
+            <ChatPanel>
+              <Chat />
+            </ChatPanel>
+          </Wrapper>
+        </Row>
       </LoginContainer>
     );
   } else return <LoginView img={czat} signIn={signIn} />;
@@ -72,7 +60,7 @@ const LoginContainer = styled(Container)`
   overflow: hidden;
   margin: 0;
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     top: 0;
@@ -87,19 +75,19 @@ const LoginContainer = styled(Container)`
   }
 `;
 const Row = styled.div`
-min-height: 600px;
-width: 50%;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-z-index: 2;
-padding: 20px;
-position: relative;
-img {
-  position: absolute;
-  width: 800px;
-}
+  min-height: 600px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  padding: 20px;
+  position: relative;
+  img {
+    position: absolute;
+    width: 800px;
+  }
 `;
 const GroupsPanel = styled.div``;
 
@@ -111,6 +99,7 @@ const Wrapper = styled.div`
   justify-content: space-around;
   padding: 20px;
   margin-right: 120px;
+  align-items: center;
   @media (max-width: 768px) {
     flex-direction: column;
   }
