@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Button from '../Button/Button';
 import Logo from '../../assets/images/logo.png';
 
 import { BsFacebook, BsGithub, BsLinkedin } from 'react-icons/bs';
@@ -8,7 +7,7 @@ import ScrollToTop from 'react-scroll-to-top';
 
 const Footer = () => (
   <Container>
-    <ScrollToTop smooth />
+    <ScrollToTop smooth style={{bottom: "80px"}}/>
     <UpperRow>
       <Title>Szukam ekipy do!</Title>
       <Paragraph>
