@@ -7,7 +7,7 @@ import Button from "../../components/Button/Button";
 import SearchLocationInput from "./SearchLocationInput";
 import LoginView from "../LoginView/LoginView";
 import wyszukiwanie from "../../assets/images/wyszukiwanie.svg";
-import getKeywords from "./getKeywords";
+import { getKeywords, searchGroups } from "./apiFunctions";
 import Title from "../../components/Title/Title";
 import BG from "../../assets/images/pattern.png";
 import ListOfGroups from "./ListOfGroups";
@@ -40,6 +40,10 @@ const SearchView = ({ signIn }) => {
     }
 
     setAddGroupView(false);
+  };
+
+  const searchGroups = async () => {
+    searchGroups();
   };
 
   useEffect(() => {
@@ -81,7 +85,7 @@ const SearchView = ({ signIn }) => {
           </AddGroupView>
         )}
         <SearchWrapper>
-          <Button>Szukaj grupę</Button>
+          <Button onClick={() => searchGroups()}>Szukaj grupę</Button>
           <DateTimeWrapper>
             <DateWrapper>
               <Label>Od</Label>
