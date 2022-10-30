@@ -23,7 +23,10 @@ const SearchView = ({ signIn }) => {
   const [maxDate, setMaxDate] = useState();
   const [minTime, setMinTime] = useState();
   const [maxTime, setMaxTime] = useState();
+  const [eventDate, setEventDate] = useState();
+  const [eventTime, setEventTime] = useState();
   const [keyWords, setKeyWords] = useState();
+  const [groupMaxMembers, setGroupMaxMembers] = useState();
 
   const addGroup = async (event) => {
     event.preventDefault();
@@ -66,22 +69,37 @@ const SearchView = ({ signIn }) => {
     return (
       <Container>
         <Title>Tutaj możesz znaleźć ekipę</Title>
-        <AddGroupBtn onClick={() => setAddGroupView(true)}>
-          Dodaj grupe
-        </AddGroupBtn>
         {addGroupView && (
           <AddGroupView>
             <button onClick={() => setAddGroupView(false)}>Wyjdź</button>
             <p>Testowe tworzenie grupy, żeby nie było samych testów</p>
-            <form onSubmit={(e) => addGroup(e)}>
+            <AddGroupViewForm onSubmit={(e) => addGroup(e)}>
               <Label>Nazwa: </Label>
               <Input
                 type="text"
                 required="required"
                 onChange={(e) => setGroupName(e.target.value)}
               />
+              <Label>Dzień: </Label>
+              <Input
+                type="date"
+                required="required"
+                onChange={(e) => setEventDate(e.target.value)}
+              />
+              <Label>Godzina: </Label>
+              <Input
+                type="time"
+                required="required"
+                onChange={(e) => setEventTime(e.target.value)}
+              />
+              <Label>Max liczba członków: </Label>
+              <Input
+                type="number"
+                required="required"
+                onChange={(e) => setGroupMaxMembers(e.target.value)}
+              />
               <Button type="submit">Stwórz grupę</Button>
-            </form>
+            </AddGroupViewForm>
           </AddGroupView>
         )}
         <SearchWrapper>
@@ -111,6 +129,9 @@ const SearchView = ({ signIn }) => {
         <GroupsContainer>
           <h2>Testowa lista wszystkich grup</h2>
           <ListOfGroups currentUser={user} />
+          <AddGroupBtn onClick={() => setAddGroupView(true)}>
+            Dodaj grupe
+          </AddGroupBtn>
         </GroupsContainer>
       </Container>
     );
@@ -166,8 +187,8 @@ const AddGroupBtn = styled(Button)`
 
 const AddGroupView = styled.div`
   position: fixed;
-  height: 300px;
-  width: 300px;
+  height: auto;
+  width: auto;
   padding: 20px;
   background-color: gray;
   z-index: 999;
@@ -176,6 +197,11 @@ const AddGroupView = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+`;
+
+const AddGroupViewForm = styled.form`
+  display: flex;
+  flex-direction: column;
 `;
 
 const GroupsContainer = styled.div`

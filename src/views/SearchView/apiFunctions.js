@@ -48,7 +48,18 @@ export const searchGroups = async () => {
   }
 };
 
-export const addGroup = async () => {
+export const addGroup = async (
+  groupID,
+  name,
+  latitude,
+  longitude,
+  event_date,
+  event_time,
+  max_members,
+  members,
+  owner,
+  tags
+) => {
   const cookieValue = getCookie();
   const data = {
     firebase_chat_id: "123456",
