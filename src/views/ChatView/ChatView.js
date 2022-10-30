@@ -8,6 +8,7 @@ import LoginView from "../LoginView/LoginView";
 import czat from "../../assets/images/czat.png";
 import background from "../../assets/images/pattern.png";
 import Title from "../../components/Title/Title";
+import CzatImg from '../../assets/images/pytania-odpowiedzi.svg'
 
 const HomeView = ({ signIn }) => {
   const [user, loading, error] = useAuthState(auth);
@@ -22,7 +23,16 @@ const HomeView = ({ signIn }) => {
   if (user) {
     return (
       <LoginContainer>
-        <ChatTitle>grupy, do których należysz:</ChatTitle>
+
+<Row>
+
+<img src={CzatImg} alt="#" />
+
+
+</Row>
+<Row>
+  
+<ChatTitle>grupy, do których należysz:</ChatTitle>
         <Wrapper>
           <GroupsPanel>
             <ListOfGroups />
@@ -31,6 +41,14 @@ const HomeView = ({ signIn }) => {
             <Chat />
           </ChatPanel>
         </Wrapper>
+</Row>
+
+
+
+
+
+
+
       </LoginContainer>
     );
   } else return <LoginView img={czat} signIn={signIn} />;
@@ -50,6 +68,9 @@ const Container = styled.div`
 
 const LoginContainer = styled(Container)`
   background: url(${background});
+  flex-direction: row;
+  overflow: hidden;
+  margin: 0;
   &::after {
     content: "";
     position: absolute;
@@ -65,7 +86,21 @@ const LoginContainer = styled(Container)`
     flex-direction: column;
   }
 `;
-
+const Row = styled.div`
+min-height: 600px;
+width: 50%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+z-index: 2;
+padding: 20px;
+position: relative;
+img {
+  position: absolute;
+  width: 800px;
+}
+`;
 const GroupsPanel = styled.div``;
 
 const ChatPanel = styled.div``;
@@ -74,6 +109,8 @@ const Wrapper = styled.div`
   margin-top: 20px;
   display: flex;
   justify-content: space-around;
+  padding: 20px;
+  margin-right: 120px;
   @media (max-width: 768px) {
     flex-direction: column;
   }

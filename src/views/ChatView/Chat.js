@@ -37,10 +37,9 @@ const Container = styled.div`
 
 const ChatWrapper = styled.div`
   border: 1px solid black;
-  height: 500px;
   position: relative;
-  background-color: #87d68d;
-  min-height: 70vh;
+  background-color: white;
+  height: 50vh;
   border-radius: 20px;
   padding: 15px;
   border: none;
@@ -59,9 +58,13 @@ const ChatHeader = styled.div`
   z-index: 2;
   height: auto;
   width: 400px;
-  background-color: white;
+  background-color: #5603ad;
   position: absolute;
   top: 0;
   left: 0px;
   padding: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: white;
 `;

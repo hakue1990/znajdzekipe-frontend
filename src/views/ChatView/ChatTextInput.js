@@ -26,7 +26,7 @@ const ChatTextInput = ({ chatID }) => {
   return (
     <Container>
       <Input
-        placeholder="wiadomość.."
+        placeholder="wiadomość..."
         onKeyPress={(ev) => {
           if (ev.key === "Enter") {
             ev.preventDefault();
@@ -37,6 +37,7 @@ const ChatTextInput = ({ chatID }) => {
           }
         }}
       />
+        
     </Container>
   );
 };
@@ -49,15 +50,28 @@ const Container = styled.div`
   box-sizing: border-box;
   padding: 10px;
   left: 0;
-  background-color: white;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    cursor: pointer;
+
+  }
 `;
 
 const Input = styled.input`
   padding: 5px;
   border: none;
-  border-bottom: 3px solid black;
+  border: 1px solid black;
+  border-radius: 15px;
   outline: none;
   background: none;
   width: 100%;
+  height: 40px;
+  padding: 15px;
+  padding-right: 50px;
+  background-color: white;
+  margin-right: 6px;
 `;
+ 

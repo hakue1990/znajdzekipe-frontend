@@ -24,7 +24,7 @@ export default Group;
 const Container = styled.div`
   cursor: pointer;
   padding: 30px;
-  background-color: #87d68d;
+  background-color: #5603ad;
   height: 50px;
   display: flex;
   justify-content: center;
@@ -34,6 +34,7 @@ const Container = styled.div`
   transition: all 0.3s ease;
   width: 330px;
   z-index: 1;
+  color: white;
   &:hover {
     background-color: #e6af2e;
   }

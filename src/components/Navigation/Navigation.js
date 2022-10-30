@@ -1,53 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import LogoImg from '../../assets/images/logo.png';
-import logo from '../../assets/images/logo1.png';
 import { NavLink } from 'react-router-dom';
-import Button from '../Button/Button';
-import { signInWithPopup, signOut } from 'firebase/auth';
-import { auth, provider } from '../../firebase';
-// import { setCookie } from '../../utils/setCookie';
-
-// const postData = (accessToken) => {
-//   fetch('https://backend.szukamekipydo.pl/api/login', {
-//     method: 'POST',
-//     mode: 'cors',
-//     headers: {
-//       'Content-Type': 'application/json',
-//       idToken: `${accessToken}`,
-//     },
-//   })
-//     .then((respnose) => respnose.json())
-//     .then((data) => {
-//       console.log(data);
-//       setCookie(data.Authorization, data.expires_at);
-//     });
-// };
+import Button from './../Button/Button';
 
 const Navbar = ({ signIn, logOut }) => {
   const [isOpen, setIsOpen] = useState(false);
-
-  // const signIn = () => {
-  //   signInWithPopup(auth, provider)
-  //     .then((data) => {
-  //       console.log(data.user.accessToken);
-  //       postData(data.user.accessToken);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
-
-  // const logOut = () => {
-  //   signOut(auth)
-  //     .then(() => {
-  //       // Sign-out successful.
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
-
+  
   return (
     <Nav>
       <MenuLink to='/'>
