@@ -6,7 +6,7 @@ import ListOfGroups from "./ListOfGroups";
 const GroupsComponent = ({ groups, setAddGroupView }) => {
   return (
     <Container>
-      <h2>Testowa lista wszystkich grup</h2>
+      <h2>Lista wyszukanych grup</h2>
       <ListOfGroups groups={groups} />
       <AddGroupBtn onClick={() => setAddGroupView(true)}>
         Dodaj grupe

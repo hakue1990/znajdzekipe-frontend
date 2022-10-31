@@ -3,19 +3,17 @@ import styled from "styled-components";
 import { doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { db } from "../../../firebase";
 
-const Group = ({ data, currentUser, groupID }) => {
-  const groupRef = doc(db, "groups", groupID);
+const Group = ({ name, currentUser, firebaseID }) => {
+  const groupRef = doc(db, "groups", firebaseID);
   const joinGroup = async () => {
     return await updateDoc(groupRef, {
-      members: arrayUnion(currentUser.email),
+      members: arrayUnion(currentUser),
     });
   };
 
   return (
     <Container>
-      <Description>
-        Nazwa: {data.name}, Członkowie: {data.members}
-      </Description>
+      <Description>Nazwa: {name}</Description>
       <button onClick={() => joinGroup()}>Dołącz</button>
     </Container>
   );
