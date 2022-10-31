@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { doc, updateDoc, arrayUnion } from "firebase/firestore";
-import { db } from "../../firebase";
+import { db } from "../../../firebase";
 
 const Group = ({ data, currentUser, groupID }) => {
   const groupRef = doc(db, "groups", groupID);

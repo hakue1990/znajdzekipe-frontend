@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { collection, addDoc } from "firebase/firestore";
-import { db, auth } from "../../firebase";
-import { apiAddGroup } from "./apiFunctions";
-import Button from "../../components/Button/Button";
+import { db, auth } from "../../../firebase";
+import { apiAddGroup } from "../api/apiFunctions";
+import Button from "../../../components/Button/Button";
 
 const AddGroupComponent = ({
   latitude,

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Button from "../../components/Button/Button";
-import SearchLocationInput from "./SearchLocationInput";
-import { apiGetKeywords, apiSearchGroups } from "./apiFunctions";
+import Button from "../../../components/Button/Button";
+import SearchLocationInput from "../api/SearchLocationInput";
+import { apiGetKeywords, apiSearchGroups } from "../api/apiFunctions";
 
 const SearchGroupsComponent = ({
   latitude,
@@ -11,6 +11,7 @@ const SearchGroupsComponent = ({
   setLatitude,
   setLongitude,
   setKeyWords,
+  setGroups,
 }) => {
   const [minDate, setMinDate] = useState();
   const [maxDate, setMaxDate] = useState();
@@ -43,12 +44,14 @@ const SearchGroupsComponent = ({
       maxTime,
       seperateKeywords
     ).then(function (response) {
-      console.log(response);
+      setGroups(response);
     });
   };
   return (
     <Container>
-      <Button onClick={() => searchGroups()}>Szukaj grupę</Button>
+      {keyWords?.["empty"] !== "empty" && (
+        <Button onClick={() => searchGroups()}>Szukaj grupę</Button>
+      )}
       <DateTimeWrapper>
         <DateWrapper>
           <Label>Od</Label>

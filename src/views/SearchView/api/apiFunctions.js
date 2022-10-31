@@ -1,4 +1,4 @@
-import { getCookie } from "../../utils/getCookie";
+import { getCookie } from "../../../utils/getCookie";
 
 export const apiGetKeywords = async (text) => {
   const cookieValue = getCookie();
@@ -62,7 +62,7 @@ export const apiSearchGroups = async (
       }
     );
 
-    return await apiResponse.text();
+    return await apiResponse.json();
   } catch (e) {
     console.log(e);
   }

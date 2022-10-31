@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { db, auth } from "../../firebase";
-import Button from "../../components/Button/Button";
+import { auth } from "../../firebase";
 import LoginView from "../LoginView/LoginView";
 import wyszukiwanie from "../../assets/images/wyszukiwanie.svg";
 import Title from "../../components/Title/Title";
 import BG from "../../assets/images/pattern.png";
-import ListOfGroups from "./ListOfGroups";
-import AddGroupComponent from "./AddGroupComponent";
-import SearchGroupsComponent from "./SearchGroupsComponent";
+import AddGroupComponent from "./Components/AddGroupComponent";
+import SearchGroupsComponent from "./Components/SearchGroupsComponent";
+import GroupsComponent from "./Components/GroupsComponent";
 
 const SearchView = ({ signIn }) => {
   const [user, loading, error] = useAuthState(auth);
@@ -17,6 +16,7 @@ const SearchView = ({ signIn }) => {
   const [latitude, setLatitude] = useState();
   const [longitude, setLongitude] = useState();
   const [keyWords, setKeyWords] = useState();
+  const [groups, setGroups] = useState([]);
 
   if (loading)
     return (
@@ -44,14 +44,9 @@ const SearchView = ({ signIn }) => {
           setLatitude={setLatitude}
           setLongitude={setLongitude}
           setKeyWords={setKeyWords}
+          setGroups={setGroups}
         />
-        <GroupsContainer>
-          <h2>Testowa lista wszystkich grup</h2>
-          <ListOfGroups currentUser={user} />
-          <AddGroupBtn onClick={() => setAddGroupView(true)}>
-            Dodaj grupe
-          </AddGroupBtn>
-        </GroupsContainer>
+        <GroupsComponent groups={groups} setAddGroupView={setAddGroupView} />
       </Container>
     );
   } else return <LoginView img={wyszukiwanie} signIn={signIn} />;
@@ -75,23 +70,4 @@ const Container = styled.div`
     opacity: 0.8;
     pointer-events: none;
   }
-`;
-
-const AddGroupBtn = styled(Button)`
-  z-index: 1;
-  position: relative;
-`;
-
-const GroupsContainer = styled.div`
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  position: block;
-  background-color: #ffffff;
-  z-index: 99;
-  margin-top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 500px;
-  height: 500px;
 `;
