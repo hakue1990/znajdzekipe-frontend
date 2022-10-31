@@ -3,14 +3,18 @@ import styled from "styled-components";
 import Button from "../../../components/Button/Button";
 import ListOfGroups from "./ListOfGroups";
 
-const GroupsComponent = ({ groups, setAddGroupView }) => {
+const GroupsComponent = ({ groups, setAddGroupView, searched }) => {
   return (
     <Container>
       <h2>Lista wyszukanych grup</h2>
       <ListOfGroups groups={groups} />
-      <AddGroupBtn onClick={() => setAddGroupView(true)}>
-        Dodaj grupe
-      </AddGroupBtn>
+      {searched ? (
+        <AddGroupBtn onClick={() => setAddGroupView(true)}>
+          Dodaj grupe
+        </AddGroupBtn>
+      ) : (
+        <p>Aby dodać grupę, musisz najpierw wyszukać!</p>
+      )}
     </Container>
   );
 };

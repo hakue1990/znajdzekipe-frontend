@@ -12,6 +12,7 @@ const SearchGroupsComponent = ({
   setLongitude,
   setKeyWords,
   setGroups,
+  setSearched,
 }) => {
   const [minDate, setMinDate] = useState();
   const [maxDate, setMaxDate] = useState();
@@ -19,17 +20,21 @@ const SearchGroupsComponent = ({
   const [maxTime, setMaxTime] = useState();
   const [maxDistance, setMaxDistance] = useState();
   const [searchText, setSearchText] = useState("");
+  const [wordsLoading, setWordsLoading] = useState(false);
 
   useEffect(() => {
     const timeOutId = setTimeout(() => {
+      setWordsLoading(true);
       apiGetKeywords(searchText).then(function (keywords) {
         setKeyWords(keywords);
+        setWordsLoading(false);
       });
     }, 500);
     return () => clearTimeout(timeOutId);
   }, [searchText]);
 
-  const searchGroups = async () => {
+  const searchGroups = async (event) => {
+    event.preventDefault();
     const seperateKeywords = [];
     for (const [key, value] of Object.entries(keyWords)) {
       if (value) seperateKeywords.push(value[1]);
@@ -45,41 +50,63 @@ const SearchGroupsComponent = ({
       seperateKeywords
     ).then(function (response) {
       setGroups(response);
+      setSearched(true);
     });
   };
   return (
     <Container>
-      {keyWords?.["empty"] !== "empty" && (
-        <Button onClick={() => searchGroups()}>Szukaj grupę</Button>
-      )}
-      <DateTimeWrapper>
-        <DateWrapper>
-          <Label>Od</Label>
-          <Input type="date" onChange={(e) => setMinDate(e.target.value)} />
-          <Input type="time" onChange={(e) => setMinTime(e.target.value)} />
-        </DateWrapper>
-        <DateWrapper>
-          <Label>Do</Label>
-          <Input type="date" onChange={(e) => setMaxDate(e.target.value)} />
-          <Input type="time" onChange={(e) => setMaxTime(e.target.value)} />
-        </DateWrapper>
-      </DateTimeWrapper>
-      <Input
-        type="text"
-        placeholder="wpisz czego szukasz..."
-        onChange={(e) => setSearchText(e.target.value)}
-      />
-      <Label>Wybierz lokalizację: </Label>
-      <SearchLocationInput
-        handleLatitude={setLatitude}
-        handleLongitude={setLongitude}
-      />
-      <Label>Max dystans w KM: </Label>
-      <Input
-        type="number"
-        required="required"
-        onChange={(e) => setMaxDistance(e.target.value)}
-      />
+      <Form onSubmit={(e) => searchGroups(e)}>
+        <Input
+          type="text"
+          required="required"
+          placeholder="wpisz czego szukasz..."
+          onChange={(e) => setSearchText(e.target.value)}
+        />
+        <DateTimeWrapper>
+          <DateWrapper>
+            <Label>Od</Label>
+            <Input
+              type="date"
+              required="required"
+              onChange={(e) => setMinDate(e.target.value)}
+            />
+            <Input
+              type="time"
+              required="required"
+              onChange={(e) => setMinTime(e.target.value)}
+            />
+          </DateWrapper>
+          <DateWrapper>
+            <Label>Do</Label>
+            <Input
+              type="date"
+              required="required"
+              onChange={(e) => setMaxDate(e.target.value)}
+            />
+            <Input
+              type="time"
+              required="required"
+              onChange={(e) => setMaxTime(e.target.value)}
+            />
+          </DateWrapper>
+        </DateTimeWrapper>
+        <Label>Wybierz lokalizację: </Label>
+        <SearchLocationInput
+          handleLatitude={setLatitude}
+          handleLongitude={setLongitude}
+        />
+        <Label>Max dystans w KM: </Label>
+        <Input
+          type="number"
+          required="required"
+          onChange={(e) => setMaxDistance(e.target.value)}
+        />
+        {wordsLoading ? (
+          <Button disabled>Wyszkuje</Button>
+        ) : (
+          <Button type="submit">Szukaj grupę</Button>
+        )}
+      </Form>
     </Container>
   );
 };
@@ -87,6 +114,12 @@ const SearchGroupsComponent = ({
 export default SearchGroupsComponent;
 
 const Container = styled.div`
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+`;
+
+const Form = styled.form`
   width: 30vw;
   display: flex;
   justify-content: center;

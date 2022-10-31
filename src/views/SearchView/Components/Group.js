@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { db } from "../../../firebase";
+import { getCookie } from "../../../utils/getCookie";
 
 const Group = ({ name, currentUser, firebaseID }) => {
   const groupRef = doc(db, "groups", firebaseID);
@@ -10,6 +11,14 @@ const Group = ({ name, currentUser, firebaseID }) => {
       members: arrayUnion(currentUser),
     });
   };
+
+  /* const apiJoinGroup = async () => {
+    const cookieValue = getCookie();
+    const data = {
+      firebase_chat_id: "",
+      email: ""
+    };
+  } */
 
   return (
     <Container>

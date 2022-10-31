@@ -17,6 +17,7 @@ const SearchView = ({ signIn }) => {
   const [longitude, setLongitude] = useState();
   const [keyWords, setKeyWords] = useState();
   const [groups, setGroups] = useState([]);
+  const [searched, setSearched] = useState(false);
 
   if (loading)
     return (
@@ -45,8 +46,13 @@ const SearchView = ({ signIn }) => {
           setLongitude={setLongitude}
           setKeyWords={setKeyWords}
           setGroups={setGroups}
+          setSearched={setSearched}
         />
-        <GroupsComponent groups={groups} setAddGroupView={setAddGroupView} />
+        <GroupsComponent
+          groups={groups}
+          setAddGroupView={setAddGroupView}
+          searched={searched}
+        />
       </Container>
     );
   } else return <LoginView img={wyszukiwanie} signIn={signIn} />;
