@@ -1,13 +1,51 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { doc, updateDoc, arrayRemove } from "firebase/firestore";
 import styled from "styled-components";
+import { BsFillTrashFill } from "react-icons/bs";
+import { db } from "../../../firebase";
 import ChatTextInput from "./ChatTextInput";
 import MessagesScreen from "./MessagesScreen";
+import { getCookie } from "../../../utils/getCookie";
 
-const ChatPanel = () => {
+const ChatPanel = ({ currentUser }) => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   let chatData = location.state;
+
+  const leaveGroup = async () => {
+    const cookieValue = getCookie();
+    const groupRef = doc(db, "groups", chatData.chatID);
+    const data = {
+      firebase_chat_id: chatData.chatID,
+      email: currentUser,
+    };
+
+    try {
+      await fetch("https://backend.szukamekipydo.pl/api/member/delete", {
+        method: "DELETE",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Authorization: `${cookieValue}`,
+        },
+        body: JSON.stringify(data),
+      });
+
+      await updateDoc(groupRef, {
+        members: arrayRemove(currentUser),
+      });
+    } catch (e) {
+      console.log(e);
+    }
+
+    navigate("/chat", {
+      replace: true,
+      state: null,
+    });
+  };
 
   return (
     <Container>
@@ -15,6 +53,7 @@ const ChatPanel = () => {
         <ChatHeader>
           {chatData ? <p>{chatData.name}</p> : <p>Wybierz Grupę!</p>}
         </ChatHeader>
+        <DeleteIcon onClick={() => leaveGroup()} />
         {chatData && (
           <>
             <MessagesScreen chatID={chatData.chatID} />
@@ -67,4 +106,20 @@ const ChatHeader = styled.div`
   text-transform: uppercase;
   font-weight: bold;
   color: white;
+`;
+
+const DeleteIcon = styled(BsFillTrashFill)`
+  z-index: 3;
+  cursor: pointer;
+  box-sizing: content-box;
+  position: absolute;
+  height: 1.5em;
+  width: 1.5em;
+  padding: 5px;
+  top: 4px;
+  border-radius: 40%;
+  transition: all 0.3s ease;
+  :hover {
+    background-color: #f6ae2d;
+  }
 `;

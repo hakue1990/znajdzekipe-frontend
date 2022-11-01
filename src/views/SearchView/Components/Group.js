@@ -5,8 +5,8 @@ import { db } from "../../../firebase";
 import { apiAddMember } from "../api/apiFunctions";
 
 const Group = ({ name, currentUser, firebaseID }) => {
-  const groupRef = doc(db, "groups", firebaseID);
   const joinGroup = async () => {
+    const groupRef = doc(db, "groups", firebaseID);
     try {
       await apiAddMember(firebaseID, currentUser);
 
