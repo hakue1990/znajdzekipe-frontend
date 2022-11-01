@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import Button from "../../../components/Button/Button";
-import ListOfGroups from "./ListOfGroups";
+import React from 'react';
+import styled from 'styled-components';
+import Button from '../../../components/Button/Button';
+import ListOfGroups from './ListOfGroups';
 
 const GroupsComponent = ({ groups, setAddGroupView, searched }) => {
   return (
@@ -37,5 +37,7 @@ const Container = styled.div`
   left: 50%;
   transform: translateX(-50%);
   width: 500px;
-  height: 500px;
+  height: 300px;
+  padding: 20px;
+  text-align: center;
 `;
