@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { db, auth } from "../../firebase";
+import { db, auth } from "../../../firebase";
 
 const ChatTextInput = ({ chatID }) => {
   const [user] = useAuthState(auth);
@@ -37,7 +37,6 @@ const ChatTextInput = ({ chatID }) => {
           }
         }}
       />
-        
     </Container>
   );
 };
@@ -56,7 +55,6 @@ const Container = styled.div`
   justify-content: center;
   img {
     cursor: pointer;
-
   }
 `;
 
@@ -74,4 +72,3 @@ const Input = styled.input`
   background-color: white;
   margin-right: 6px;
 `;
- 

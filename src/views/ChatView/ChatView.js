@@ -1,14 +1,14 @@
-import React from 'react';
-import styled from 'styled-components';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from '../../firebase';
-import ListOfGroups from './ListOfGroups';
-import Chat from './Chat';
-import LoginView from '../LoginView/LoginView';
-import czat from '../../assets/images/czat.png';
-import background from '../../assets/images/pattern.png';
-import Title from '../../components/Title/Title';
-import CzatImg from '../../assets/images/siedza.png';
+import React from "react";
+import styled from "styled-components";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../firebase";
+import ListOfGroups from "./Components/ListOfGroups";
+import Chat from "./Components/Chat";
+import LoginView from "../LoginView/LoginView";
+import czat from "../../assets/images/czat.png";
+import background from "../../assets/images/pattern.png";
+import Title from "../../components/Title/Title";
+import CzatImg from "../../assets/images/siedza.png";
 
 const HomeView = ({ signIn }) => {
   const [user, loading, error] = useAuthState(auth);
@@ -24,7 +24,7 @@ const HomeView = ({ signIn }) => {
     return (
       <LoginContainer>
         <Row>
-          <img src={CzatImg} alt='#' />
+          <img src={CzatImg} alt="#" />
         </Row>
         <Row>
           <ChatTitle>grupy, do których należysz:</ChatTitle>
@@ -56,7 +56,7 @@ const LoginContainer = styled(Container)`
   overflow: hidden;
   margin: 0;
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     top: 0;
