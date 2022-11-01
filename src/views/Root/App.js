@@ -1,11 +1,10 @@
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import HomeView from "../HomeView/HomeView";
 import ChatView from "../ChatView/ChatView";
 import ContactView from "../ContactView/ContactView";
 import Navigation from "../../components/Navigation/Navigation";
 import SearchView from "../SearchView/SearchView";
-
 import { setCookie } from "../../utils/setCookie";
 import { signInWithPopup, signOut } from "firebase/auth";
 import { auth, provider } from "../../firebase";
@@ -30,6 +29,7 @@ const postData = (accessToken) => {
 };
 
 const App = () => {
+  const navigate = useNavigate();
   const signIn = () => {
     signInWithPopup(auth, provider)
       .then((data) => {
@@ -45,6 +45,10 @@ const App = () => {
     signOut(auth)
       .then(() => {
         // Sign-out successful.
+        navigate("/", {
+          replace: true,
+          state: null,
+        });
       })
       .catch((error) => {
         console.log(error);
