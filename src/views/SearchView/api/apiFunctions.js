@@ -62,8 +62,7 @@ export const apiSearchGroups = async (
       }
     );
 
-    if (Array.isArray(apiResponse.json())) return await apiResponse.json();
-    else return [];
+    return await apiResponse.json();
   } catch (e) {
     console.log(e);
   }

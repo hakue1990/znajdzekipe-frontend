@@ -49,7 +49,7 @@ const SearchGroupsComponent = ({
       maxTime,
       seperateKeywords
     ).then(function (response) {
-      setGroups(response);
+      if (Array.isArray(response)) setGroups(response);
       setSearched(true);
     });
   };

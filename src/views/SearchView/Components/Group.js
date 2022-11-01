@@ -7,9 +7,34 @@ import { getCookie } from "../../../utils/getCookie";
 const Group = ({ name, currentUser, firebaseID }) => {
   const groupRef = doc(db, "groups", firebaseID);
   const joinGroup = async () => {
-    return await updateDoc(groupRef, {
-      members: arrayUnion(currentUser),
-    });
+    const cookieValue = getCookie();
+    const data = {
+      firebase_chat_id: firebaseID,
+      email: currentUser,
+    };
+
+    try {
+      const apiResponse = await fetch(
+        "https://backend.szukamekipydo.pl/api/member/create",
+        {
+          method: "POST",
+          mode: "cors",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            Authorization: `${cookieValue}`,
+          },
+          body: JSON.stringify(data),
+        }
+      );
+
+      const firebaseResponse = await updateDoc(groupRef, {
+        members: arrayUnion(currentUser),
+      });
+      return { apiResponse, firebaseResponse };
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   /* const apiJoinGroup = async () => {
