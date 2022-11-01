@@ -115,3 +115,26 @@ export const apiAddGroup = async (
     console.log(e);
   }
 };
+
+export const apiAddMember = async (firebaseID, currentUser) => {
+  const cookieValue = getCookie();
+  const data = {
+    firebase_chat_id: firebaseID,
+    email: currentUser,
+  };
+
+  try {
+    await fetch("https://backend.szukamekipydo.pl/api/member/create", {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `${cookieValue}`,
+      },
+      body: JSON.stringify(data),
+    });
+  } catch (e) {
+    console.log(e);
+  }
+};
