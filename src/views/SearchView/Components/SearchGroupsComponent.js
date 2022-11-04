@@ -4,6 +4,8 @@ import Button from "../../../components/Button/Button";
 import SearchLocationInput from "../api/SearchLocationInput";
 import { apiGetKeywords, apiSearchGroups } from "../api/apiFunctions";
 
+import Title from "../../../components/Title/Title";
+
 const SearchGroupsComponent = ({
   latitude,
   longitude,
@@ -55,6 +57,7 @@ const SearchGroupsComponent = ({
   };
   return (
     <Container>
+      <Title>tutaj możesz znależć ekipe ❤️</Title>
       <Form onSubmit={(e) => searchGroups(e)}>
         <Input
           type="text"
@@ -104,7 +107,9 @@ const SearchGroupsComponent = ({
         {wordsLoading ? (
           <Button disabled>Wyszkuje</Button>
         ) : (
-          <Button type="submit">Szukaj grupę</Button>
+          <Button type="submit" width="180px">
+            Szukaj grupę
+          </Button>
         )}
       </Form>
     </Container>
@@ -116,25 +121,40 @@ export default SearchGroupsComponent;
 const Container = styled.div`
   width: 100vw;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  text-align: center;
 `;
 
 const Form = styled.form`
-  width: 30vw;
+  width: 450px;
+  height: 500px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
   flex-direction: column;
   z-index: 1;
+  background-color: white;
+  margin-top: 20px;
+  padding: 10px 22px;
+  border-radius: 20px;
+  color: black;
 `;
 
 const Label = styled.label`
   z-index: 1;
-  color: white;
+  color: black;
   margin: 20px;
 `;
 const Input = styled.input`
   z-index: 1;
-  padding: 5px;
+  width: 100%;
+  padding:10px;
+  border-radius:10px;
+  outline: none;
+  border: 1px solid black;
 `;
 
 const DateTimeWrapper = styled.div`

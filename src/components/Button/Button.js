@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const Button = styled.button`
   margin: ${({ margin }) => margin};
   background-color: #f6ae2d;
+  width: ${({ width }) => width};
   border-radius: 18px;
   border-style: none;
   color: black;

@@ -98,7 +98,7 @@ const Container = styled.div`
   width: auto;
   padding: 20px;
   background-color: gray;
-  z-index: 999;
+  z-index: 9199;
   display: flex;
   flex-direction: column;
   top: 50%;

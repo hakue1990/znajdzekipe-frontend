@@ -99,5 +99,10 @@ function SearchLocationInput({ handleLatitude, handleLongitude }) {
 const Input = styled.input`
   z-index: 1;
   position: relative;
+  width: 100%;
+  padding:10px;
+  border-radius:10px;
+  outline: none;
+  margin: 5px;
 `;
 export default SearchLocationInput;

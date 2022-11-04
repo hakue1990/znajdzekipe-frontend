@@ -9,6 +9,7 @@ import BG from "../../assets/images/pattern.png";
 import AddGroupComponent from "./Components/AddGroupComponent";
 import SearchGroupsComponent from "./Components/SearchGroupsComponent";
 import GroupsComponent from "./Components/GroupsComponent";
+import poolImg from './../../assets/images/pool.svg';
 
 const SearchView = ({ signIn }) => {
   const [user, loading, error] = useAuthState(auth);
@@ -29,7 +30,7 @@ const SearchView = ({ signIn }) => {
   if (user) {
     return (
       <Container>
-        <Title>Tutaj możesz znaleźć ekipę</Title>
+        <Row>
         {addGroupView && (
           <AddGroupComponent
             latitude={latitude}
@@ -53,6 +54,10 @@ const SearchView = ({ signIn }) => {
           setAddGroupView={setAddGroupView}
           searched={searched}
         />
+        </Row>
+        <RightRow>
+<img src={poolImg} alt="man into a pool" />
+        </RightRow>
       </Container>
     );
   } else return <LoginView img={wyszukiwanie} signIn={signIn} />;
@@ -64,6 +69,7 @@ const Container = styled.div`
   min-height: 92vh;
   position: relative;
   background: url(${BG});
+  display: flex;
 
   &::after {
     content: "";
@@ -76,4 +82,28 @@ const Container = styled.div`
     opacity: 0.8;
     pointer-events: none;
   }
+`;
+const Row = styled.div`
+width: 50%;
+height: 92vh;
+position: relative;
+z-index: 2;
+display: flex;
+flex-direction: column; 
+justify-content: center;
+align-items: center;
+img {
+  width: 60%;
+  right: -100px;
+  position: relative;
+}
+@media (max-width: 768px) {
+  width: 100%;
+  height: 100vh !important;
+  background-color: red;
+}
+
+`;
+
+const RightRow = styled(Row)`
 `;

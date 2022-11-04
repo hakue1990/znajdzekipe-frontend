@@ -32,12 +32,12 @@ const Container = styled.div`
   flex-direction: column;
   position: block;
   background-color: #ffffff;
-  z-index: 99;
   margin-top: 20px;
-  left: 50%;
+  left: 102%;
   transform: translateX(-50%);
   width: 500px;
   height: 300px;
   padding: 20px;
   text-align: center;
+  border-radius: 20px;
 `;
