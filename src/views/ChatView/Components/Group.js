@@ -1,12 +1,12 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 
 const Group = ({ id, name }) => {
   const navigate = useNavigate();
 
   const redirectTo = (id) => {
-    navigate("/chat", {
+    navigate('/chat', {
       replace: true,
       state: { chatID: id, name: name },
     });

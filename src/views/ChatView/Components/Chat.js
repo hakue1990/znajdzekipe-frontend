@@ -1,12 +1,12 @@
-import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { doc, updateDoc, arrayRemove } from "firebase/firestore";
-import styled from "styled-components";
-import { BsFillTrashFill } from "react-icons/bs";
-import { db } from "../../../firebase";
-import ChatTextInput from "./ChatTextInput";
-import MessagesScreen from "./MessagesScreen";
-import { getCookie } from "../../../utils/getCookie";
+import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { doc, updateDoc, arrayRemove } from 'firebase/firestore';
+import styled from 'styled-components';
+import { BsFillTrashFill } from 'react-icons/bs';
+import { db } from '../../../firebase';
+import ChatTextInput from './ChatTextInput';
+import MessagesScreen from './MessagesScreen';
+import { getCookie } from '../../../utils/getCookie';
 
 const ChatPanel = ({ currentUser }) => {
   const location = useLocation();
@@ -16,19 +16,19 @@ const ChatPanel = ({ currentUser }) => {
 
   const leaveGroup = async () => {
     const cookieValue = getCookie();
-    const groupRef = doc(db, "groups", chatData.chatID);
+    const groupRef = doc(db, 'groups', chatData.chatID);
     const data = {
       firebase_chat_id: chatData.chatID,
       email: currentUser,
     };
 
     try {
-      await fetch("https://backend.szukamekipydo.pl/api/member/delete", {
-        method: "DELETE",
-        mode: "cors",
+      await fetch('https://backend.szukamekipydo.pl/api/member/delete', {
+        method: 'DELETE',
+        mode: 'cors',
         headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
           Authorization: `${cookieValue}`,
         },
         body: JSON.stringify(data),
@@ -41,7 +41,7 @@ const ChatPanel = ({ currentUser }) => {
       console.log(e);
     }
 
-    navigate("/chat", {
+    navigate('/chat', {
       replace: true,
       state: null,
     });
@@ -119,6 +119,9 @@ const DeleteIcon = styled(BsFillTrashFill)`
   top: 4px;
   border-radius: 40%;
   transition: all 0.3s ease;
+  color: white;
+  right: 5px;
+
   :hover {
     background-color: #f6ae2d;
   }

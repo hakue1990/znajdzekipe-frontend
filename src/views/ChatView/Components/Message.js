@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import { auth } from "../../../firebase";
-import { useAuthState } from "react-firebase-hooks/auth";
-import moment from "moment";
+import React from 'react';
+import styled from 'styled-components';
+import { auth } from '../../../firebase';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import moment from 'moment';
 
 const Message = ({ data }) => {
   const [user] = useAuthState(auth);
@@ -11,7 +11,7 @@ const Message = ({ data }) => {
 
   const TypeOfMessage = whoIs ? SenderMessageElement : RecieverMessageElement;
   const TypeOfTimestamp = whoIs ? SenderTimestamp : RecieverTimestamp;
-  const time = moment(data.timestamp?.toDate()).format("HH:mm");
+  const time = moment(data.timestamp?.toDate()).format('HH:mm');
 
   return (
     <ContainerReciever>

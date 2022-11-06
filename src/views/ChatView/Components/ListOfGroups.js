@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, db } from "../../../firebase";
-import { collection, onSnapshot, query, where } from "firebase/firestore";
-import Group from "./Group";
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth, db } from '../../../firebase';
+import { collection, onSnapshot, query, where } from 'firebase/firestore';
+import Group from './Group';
 
 const ListOfGroups = () => {
   const [groups, setGroups] = useState([]);
   const [user, loading, error] = useAuthState(auth);
 
-  const groupsRef = collection(db, "groups");
+  const groupsRef = collection(db, 'groups');
   const queryGroups = query(
     groupsRef,
-    where("members", "array-contains", user.email)
+    where('members', 'array-contains', user.email)
   );
 
   useEffect(() => {
@@ -41,4 +41,8 @@ const Container = styled.div`
   width: 400px;
   justify-content: space-around;
   align-items: center;
+  margin: 5px;
+  @media (max-width: 768px) {
+    width: 100vw;
+  }
 `;

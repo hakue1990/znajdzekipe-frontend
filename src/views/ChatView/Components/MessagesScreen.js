@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useRef } from "react";
-import styled from "styled-components";
-import { db } from "../../../firebase";
-import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
-import Message from "./Message";
+import React, { useEffect, useState, useRef } from 'react';
+import styled from 'styled-components';
+import { db } from '../../../firebase';
+import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
+import Message from './Message';
 
 const MessagesScreen = ({ chatID }) => {
   const [messages, setMessages] = useState([]);
@@ -10,18 +10,18 @@ const MessagesScreen = ({ chatID }) => {
 
   const scrollToBottom = () => {
     scrollMessagesRef.current.scrollIntoView({
-      behavior: "smooth",
-      block: "end",
-      inline: "nearest",
+      behavior: 'smooth',
+      block: 'end',
+      inline: 'nearest',
     });
   };
 
   useEffect(() => {
-    console.log("test");
+    console.log('test');
 
     const q = query(
-      collection(db, "groups", chatID, "messages"),
-      orderBy("timestamp")
+      collection(db, 'groups', chatID, 'messages'),
+      orderBy('timestamp')
     );
 
     const unsub = onSnapshot(q, (messages) => {
