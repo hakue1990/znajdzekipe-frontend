@@ -8,7 +8,7 @@ const Title = styled.h1`
   width: ${({ width }) => width || '600px'};
   z-index: 1;
   @media (max-width: 768px) {
-    font-size: 32px;
+    font-size: 15px;
     width: 300px;
     margin: 0;
     left: 0;

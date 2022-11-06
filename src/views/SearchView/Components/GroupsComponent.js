@@ -27,21 +27,15 @@ const AddGroupBtn = styled(Button)`
 `;
 
 const Container = styled.div`
-  position: absolute;
   display: flex;
   flex-direction: column;
   position: block;
   background-color: #ffffff;
   margin-top: 20px;
-  left: 102%;
-  transform: translateX(-50%);
   width: 500px;
   height: 300px;
   padding: 20px;
   text-align: center;
   border-radius: 20px;
-@media (max-width: 768px) {
-position: relative;
-left: 50vw;
-}
+  margin: 30px 10px;
 `;
