@@ -70,6 +70,7 @@ const Container = styled.div`
   position: relative;
   background: url(${BG});
   display: flex;
+  flex-direction: row;
 
   &::after {
     content: "";
@@ -82,6 +83,10 @@ const Container = styled.div`
     opacity: 0.8;
     pointer-events: none;
   }
+@media (max-width: 768px) {
+  flex-direction: column;
+  height: 130vh;
+}
 `;
 const Row = styled.div`
 width: 50%;
@@ -100,7 +105,9 @@ img {
 @media (max-width: 768px) {
   width: 100%;
   height: 100vh !important;
-  background-color: red;
+img {
+  display: none;
+}
 }
 
 `;

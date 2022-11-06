@@ -108,7 +108,6 @@ const Form = styled.form`
   align-items: center;
   left: 0;
   top: 0;
-
   @media (max-width: 768px) {
     width: 100vw;
   }

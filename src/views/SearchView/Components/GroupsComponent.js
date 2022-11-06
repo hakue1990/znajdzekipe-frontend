@@ -40,4 +40,8 @@ const Container = styled.div`
   padding: 20px;
   text-align: center;
   border-radius: 20px;
+@media (max-width: 768px) {
+position: relative;
+left: 50vw;
+}
 `;

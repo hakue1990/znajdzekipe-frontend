@@ -129,7 +129,7 @@ const Container = styled.div`
 
 const Form = styled.form`
   width: 450px;
-  height: 500px;
+  height: 600px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -138,7 +138,7 @@ const Form = styled.form`
   z-index: 1;
   background-color: white;
   margin-top: 20px;
-  padding: 10px 22px;
+  padding: 15px 22px;
   border-radius: 20px;
   color: black;
 `;
@@ -155,6 +155,7 @@ const Input = styled.input`
   border-radius:10px;
   outline: none;
   border: 1px solid black;
+  margin: 5px;
 `;
 
 const DateTimeWrapper = styled.div`
