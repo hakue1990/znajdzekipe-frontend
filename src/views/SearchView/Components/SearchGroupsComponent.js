@@ -58,7 +58,7 @@ const SearchGroupsComponent = ({
   return (
     <Container>
       <Form onSubmit={(e) => searchGroups(e)}>
-        <Title color='black'>tutaj możesz znależć ekipe ❤️</Title>
+        <SearchTitle color='black'>tutaj możesz znależć ekipe ❤️</SearchTitle>
         <Input
           type='text'
           required='required'
@@ -147,6 +147,13 @@ const Form = styled.form`
   padding: 15px 22px;
   border-radius: 20px;
   color: black;
+`;
+
+const SearchTitle = styled(Title)`
+  @media (max-width: 768px) {
+    font-size: 22px;
+    width: 80%;
+  }
 `;
 
 const Label = styled.label`
