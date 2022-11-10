@@ -135,7 +135,7 @@ const Container = styled.div`
 
 const Form = styled.form`
   width: 450px;
-  height: 600px;
+  min-height: 600px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -162,12 +162,13 @@ const Label = styled.label`
   margin: 20px;
 `;
 const Input = styled.input`
-  z-index: 1;
-  width: 100%;
-  padding: 10px;
-  border-radius: 10px;
+  box-sizing: border-box;
+  display: block;
+  width: 80%;
+  height: 40px;
+  border: 3px solid currentColor;
+  padding-left: 10px;
   outline: none;
-  border: 1px solid black;
   margin: 5px;
 `;
 
