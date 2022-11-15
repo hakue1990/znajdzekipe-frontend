@@ -1,37 +1,37 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import LogoImg from '../../assets/images/logo.png';
-import { NavLink } from 'react-router-dom';
-import Button from './../Button/Button';
+import React, { useState } from "react";
+import styled from "styled-components";
+import LogoImg from "../../assets/images/NewLogo.png";
+import { NavLink } from "react-router-dom";
+import Button from "./../Button/Button";
 
 const Navbar = ({ signIn, logOut }) => {
   const [isOpen, setIsOpen] = useState(false);
-  
+
   return (
     <Nav>
-      <MenuLink to='/'>
-        <img src={LogoImg} alt='logo' />
+      <MenuLink to="/">
+        <img src={LogoImg} alt="logo" />
       </MenuLink>
       <Hamburger onClick={() => setIsOpen(!isOpen)} isOpen={isOpen}>
         <span />
       </Hamburger>
       <Menu isOpen={isOpen}>
-        <MenuLink to='/' onClick={() => setIsOpen(false)}>
+        <MenuLink to="/" onClick={() => setIsOpen(false)}>
           Home
         </MenuLink>
-        <MenuLink to='/chat' onClick={() => setIsOpen(false)}>
+        <MenuLink to="/chat" onClick={() => setIsOpen(false)}>
           Czat
         </MenuLink>
-        <MenuLink to='/search' onClick={() => setIsOpen(false)}>
+        <MenuLink to="/search" onClick={() => setIsOpen(false)}>
           Szukaj
         </MenuLink>
-        <MenuLink to='/contact' onClick={() => setIsOpen(false)}>
+        <MenuLink to="/contact" onClick={() => setIsOpen(false)}>
           Kontakt
         </MenuLink>
-        <Button margin='20px 15px' onClick={signIn}>
+        <Button margin="20px 15px" onClick={signIn}>
           Zaloguj się
         </Button>
-        <Button margin='20px 15px' onClick={logOut}>
+        <Button margin="20px 15px" onClick={logOut}>
           Wyloguj się
         </Button>
       </Menu>
@@ -79,7 +79,7 @@ const Menu = styled.div`
   @media (max-width: 768px) {
     overflow: hidden;
     flex-direction: column;
-    max-height: ${({ isOpen }) => (isOpen ? '100vh' : '0')};
+    max-height: ${({ isOpen }) => (isOpen ? "100vh" : "0")};
     transition: max-height 0.3s ease-in;
     width: 100%;
   }
@@ -98,13 +98,13 @@ const Hamburger = styled.div`
       transition: all 0.3s ease;
       width: 30px;
       height: 3px;
-      opacity: ${({ isOpen }) => (isOpen ? '0' : '1')};
+      opacity: ${({ isOpen }) => (isOpen ? "0" : "1")};
     }
-    transform: ${({ isOpen }) => (isOpen ? 'rotate(0)' : 'rotate(0)')};
+    transform: ${({ isOpen }) => (isOpen ? "rotate(0)" : "rotate(0)")};
   }
 
   &::before {
-    content: '';
+    content: "";
     height: 3px;
     width: 100%;
     background-color: white;
@@ -114,10 +114,10 @@ const Hamburger = styled.div`
     transition: all 0.3s ease;
 
     transform: ${({ isOpen }) =>
-      isOpen ? 'translateY(8px) rotate(45deg)' : 'translateY(-10px) rotate(0)'};
+      isOpen ? "translateY(8px) rotate(45deg)" : "translateY(-10px) rotate(0)"};
   }
   &::after {
-    content: '';
+    content: "";
     height: 3px;
     width: 100%;
     background-color: white;
@@ -126,6 +126,6 @@ const Hamburger = styled.div`
     left: 0;
     transition: all 0.3s ease;
     transform: ${({ isOpen }) =>
-      isOpen ? 'translateY(8px) rotate(-45deg)' : 'translateY(0) rotate(0)'};
+      isOpen ? "translateY(8px) rotate(-45deg)" : "translateY(0) rotate(0)"};
   }
 `;
