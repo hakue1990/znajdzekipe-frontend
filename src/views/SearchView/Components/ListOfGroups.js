@@ -13,7 +13,7 @@ const ListOfGroups = ({ groups }) => {
       {groups.map((group) => (
         <Group
           key={group.id}
-          name={group.name}
+          data={group}
           currentUser={user.email}
           firebaseID={group.firebase_chat_id}
         />
