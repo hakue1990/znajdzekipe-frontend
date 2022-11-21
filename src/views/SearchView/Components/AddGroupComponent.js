@@ -148,6 +148,8 @@ const Input = styled.input`
   z-index: 1;
   padding: 5px;
   width: ${({ width }) => width};
+  border: 3px solid currentColor;
+  outline: none;
 `;
 
 const CreateButton = styled(Button)`
