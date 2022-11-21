@@ -19,7 +19,7 @@ const Navbar = ({ signIn, logOut }) => {
         <span />
       </Hamburger>
       <Menu isOpen={isOpen}>
-        <MenuLink to="/" onClick={() => setIsOpen(false)}>
+        <MenuLink to="/" end onClick={() => setIsOpen(false)}>
           Home
         </MenuLink>
         <MenuLink to="/chat" onClick={() => setIsOpen(false)}>
