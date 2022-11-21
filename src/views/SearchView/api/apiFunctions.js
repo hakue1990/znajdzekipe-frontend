@@ -71,6 +71,7 @@ export const apiSearchGroups = async (
 export const apiAddGroup = async (
   groupID,
   name,
+  description,
   latitude,
   longitude,
   event_date,
@@ -84,7 +85,7 @@ export const apiAddGroup = async (
   const data = {
     firebase_chat_id: groupID,
     name: name,
-    description: "TESTdescription",
+    description: description,
     latitude: latitude,
     longitude: longitude,
     event_date: event_date,
