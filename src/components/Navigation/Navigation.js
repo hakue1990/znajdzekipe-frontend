@@ -3,9 +3,12 @@ import styled from "styled-components";
 import LogoImg from "../../assets/images/NewLogo.png";
 import { NavLink } from "react-router-dom";
 import Button from "./../Button/Button";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../firebase";
 
 const Navbar = ({ signIn, logOut }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [user] = useAuthState(auth);
 
   return (
     <Nav>
@@ -28,12 +31,18 @@ const Navbar = ({ signIn, logOut }) => {
         <MenuLink to="/contact" onClick={() => setIsOpen(false)}>
           Kontakt
         </MenuLink>
-        <Button margin="20px 15px" onClick={signIn}>
-          Zaloguj się
-        </Button>
-        <Button margin="20px 15px" onClick={logOut}>
-          Wyloguj się
-        </Button>
+        {user ? (
+          <UserContainer>
+            <Button margin="20px 15px" onClick={logOut}>
+              Wyloguj się
+            </Button>
+            <Avatar src={user.photoURL} alt="avatar" />
+          </UserContainer>
+        ) : (
+          <Button margin="20px 15px" onClick={signIn}>
+            Zaloguj się
+          </Button>
+        )}
       </Menu>
     </Nav>
   );
@@ -128,4 +137,15 @@ const Hamburger = styled.div`
     transform: ${({ isOpen }) =>
       isOpen ? "translateY(8px) rotate(-45deg)" : "translateY(0) rotate(0)"};
   }
+`;
+
+const UserContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const Avatar = styled.img`
+  max-height: 45px;
+  margin: 15px;
+  border-radius: 50%;
 `;
