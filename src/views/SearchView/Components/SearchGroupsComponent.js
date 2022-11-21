@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import Button from '../../../components/Button/Button';
-import SearchLocationInput from '../api/SearchLocationInput';
-import { apiGetKeywords, apiSearchGroups } from '../api/apiFunctions';
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import Button from "../../../components/Button/Button";
+import SearchLocationInput from "../api/SearchLocationInput";
+import { apiGetKeywords, apiSearchGroups } from "../api/apiFunctions";
 
-import Title from '../../../components/Title/Title';
+import Title from "../../../components/Title/Title";
 
 const SearchGroupsComponent = ({
   latitude,
@@ -21,14 +21,24 @@ const SearchGroupsComponent = ({
   const [minTime, setMinTime] = useState();
   const [maxTime, setMaxTime] = useState();
   const [maxDistance, setMaxDistance] = useState();
-  const [searchText, setSearchText] = useState('');
+  const [searchText, setSearchText] = useState("");
   const [wordsLoading, setWordsLoading] = useState(false);
+  const [seperateKeywordsIDs, setSeperateKeywordsIDs] = useState([]);
 
   useEffect(() => {
     const timeOutId = setTimeout(() => {
       setWordsLoading(true);
       apiGetKeywords(searchText).then(function (keywords) {
-        setKeyWords(keywords);
+        const seperateText = [];
+        const seperateIDs = [];
+        for (const [key, value] of Object.entries(keywords)) {
+          if ((value !== "empty") & (value !== null)) {
+            seperateText.push(value[0]);
+            seperateIDs.push(value[1]);
+          }
+        }
+        setSeperateKeywordsIDs(seperateIDs);
+        setKeyWords(seperateText);
         setWordsLoading(false);
       });
     }, 500);
@@ -37,10 +47,6 @@ const SearchGroupsComponent = ({
 
   const searchGroups = async (event) => {
     event.preventDefault();
-    const seperateKeywords = [];
-    for (const [key, value] of Object.entries(keyWords)) {
-      if (value) seperateKeywords.push(value[1]);
-    }
     apiSearchGroups(
       latitude,
       longitude,
@@ -49,7 +55,7 @@ const SearchGroupsComponent = ({
       maxDate,
       minTime,
       maxTime,
-      seperateKeywords
+      seperateKeywordsIDs
     ).then(function (response) {
       if (Array.isArray(response)) setGroups(response);
       setSearched(true);
@@ -58,37 +64,45 @@ const SearchGroupsComponent = ({
   return (
     <Container>
       <Form onSubmit={(e) => searchGroups(e)}>
-        <SearchTitle color='black'>tutaj możesz znależć ekipe ❤️</SearchTitle>
+        <SearchTitle color="black">tutaj możesz znależć ekipe ❤️</SearchTitle>
         <Input
-          type='text'
-          required='required'
-          placeholder='wpisz czego szukasz...'
+          type="text"
+          required="required"
+          placeholder="wpisz czego szukasz..."
           onChange={(e) => setSearchText(e.target.value)}
         />
+        {keyWords && (
+          <KeyWordsWrapper>
+            <b>Słowa:</b>
+            {keyWords.map((text) => (
+              <KewWordsText>{text}</KewWordsText>
+            ))}
+          </KeyWordsWrapper>
+        )}
         <DateTimeWrapper>
           <DateWrapper>
             <Label>Od</Label>
             <Input
-              type='date'
-              required='required'
+              type="date"
+              required="required"
               onChange={(e) => setMinDate(e.target.value)}
             />
             <Input
-              type='time'
-              required='required'
+              type="time"
+              required="required"
               onChange={(e) => setMinTime(e.target.value)}
             />
           </DateWrapper>
           <DateWrapper>
             <Label>Do</Label>
             <Input
-              type='date'
-              required='required'
+              type="date"
+              required="required"
               onChange={(e) => setMaxDate(e.target.value)}
             />
             <Input
-              type='time'
-              required='required'
+              type="time"
+              required="required"
               onChange={(e) => setMaxTime(e.target.value)}
             />
           </DateWrapper>
@@ -100,14 +114,14 @@ const SearchGroupsComponent = ({
         />
         <Label>Max dystans w KM: </Label>
         <Input
-          type='number'
-          required='required'
+          type="number"
+          required="required"
           onChange={(e) => setMaxDistance(e.target.value)}
         />
         {wordsLoading ? (
           <Button disabled>Wyszkuje</Button>
         ) : (
-          <Button type='submit' width='180px'>
+          <Button type="submit" width="180px">
             Szukaj grupę
           </Button>
         )}
@@ -177,4 +191,21 @@ const DateTimeWrapper = styled.div`
 `;
 const DateWrapper = styled.div`
   z-index: 1;
+`;
+
+const KeyWordsWrapper = styled.div`
+  width: 80%;
+  text-align: left;
+  margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+`;
+
+const KewWordsText = styled.span`
+  margin-top: 5px;
+  margin-left: 10px;
+  background-color: lightgray;
+  padding: 2px 3px 3px 3px;
+  border-radius: 5px;
 `;

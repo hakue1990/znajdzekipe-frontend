@@ -32,11 +32,6 @@ const AddGroupComponent = ({
       });
       console.log("Document written with ID: ", docRef.id);
 
-      const seperateKeywords = [];
-      for (const [key, value] of Object.entries(keyWords)) {
-        if (value) seperateKeywords.push(value[0]);
-      }
-
       apiAddGroup(
         docRef.id,
         groupName,
@@ -48,7 +43,7 @@ const AddGroupComponent = ({
         groupMaxMembers,
         user.email,
         user.email,
-        seperateKeywords
+        keyWords
       ).then(function (response) {
         console.log(response);
       });
@@ -64,6 +59,12 @@ const AddGroupComponent = ({
       <Wrapper>
         <BackArrow size={35} onClick={() => setAddGroupView(false)} />
         <Title color="black">Stwórz swoją własną grupę!</Title>
+        <KeyWordsWrapper>
+          <b>Słowa kluczowe:</b>
+          {keyWords.map((text) => (
+            <KewWordsText>{text}</KewWordsText>
+          ))}
+        </KeyWordsWrapper>
         <AddGroupViewForm onSubmit={(e) => addGroup(e)}>
           <Label>Nazwa grupy: </Label>
           <Input
@@ -167,4 +168,21 @@ const BackArrow = styled(BiArrowBack)`
     transition-duration: 0.1s;
     background-color: #87d68d;
   }
+`;
+
+const KeyWordsWrapper = styled.div`
+  width: 80%;
+  text-align: left;
+  margin: 15px 0 15px 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+`;
+
+const KewWordsText = styled.span`
+  margin-top: 5px;
+  margin-left: 10px;
+  background-color: lightgray;
+  padding: 2px 3px 3px 3px;
+  border-radius: 5px;
 `;
